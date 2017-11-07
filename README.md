@@ -37,41 +37,7 @@ namespace OAuthTestApplication
            
             TelstraMessagingAPIClient client = new TelstraMessagingAPIClient(oAuthClientId, oAuthClientSecret);
 
-            //callback for storing token for reuse when token is updated
-            Configuration.OAuthTokenUpdateCallback = SaveTokenToDatabase;
-
-            //obtain access token, needed for client to be authorized
-            OAuthToken storedToken = LoadTokenFromDatabase();
-            if (storedToken != null)
-            {
-                Configuration.OAuthToken = storedToken;
-            }
-            else
-            {
-                try
-                {
-                    storedToken = client.Auth.Authorize(new List<OAuthScopeEnum>(){OAuthScopeEnum.NSMS});
-                    SaveTokenToDatabase(storedToken);
-                }
-                catch (OAuthProviderException e)
-                {
-                    //Handle Exception here
-                }
-            }
-        }
-
-        //function for storing token to database
-        static void SaveTokenToDatabase(OAuthToken token)
-        {
-            //Save token here
-        }
-
-        //function for loading token from database
-        static OAuthToken LoadTokenFromDatabase()
-        {
-            OAuthToken token = null;
-            //token = Get token here
-            return token;
+            object storedToken = client.Auth.Authorize(new List<OAuthScopeEnum>(){OAuthScopeEnum.NSMS});
         }
     }
 }
