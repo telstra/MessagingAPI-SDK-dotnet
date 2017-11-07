@@ -16,8 +16,6 @@ you will need internet access for build.
 1. Open the solution (TelstraMessagingAPI.sln) file.
 2. Invoke the build process using `Ctrl+Shift+B` shortcut key or using the `Build` menu as shown below.
 
-![Building SDK using Visual Studio](https://apidocs.io/illustration/cs?step=buildSDK&workspaceFolder=Telstra%20Messaging%20API-CSharp&workspaceName=TelstraMessagingAPI&projectName=TelstraMessagingAPI.Standard)
-
 ## Initialization
 
 ### Example
