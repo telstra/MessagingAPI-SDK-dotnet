@@ -41,7 +41,7 @@ namespace TelstraMessagingAPI.Standard.Utilities
         {
             string authorizationHeader = BuildBasicAuthheader(Configuration.OAuthClientId,
                 Configuration.OAuthClientSecret);
-            OAuthToken token = OAuthAuthorizationController.Instance.CreateRequestToken(authorizationHeader, (scopes != null) ? String.Join(" ", scopes.Select(OAuthScopeEnumHelper.ToValue).ToArray()) : null, additionalParameters);
+            OAuthToken token = OAuthAuthorizationController.Instance.CreateRequestToken(authorizationHeader,(scopes != null) ? String.Join(" ", scopes.Select(OAuthScopeEnumHelper.ToValue).ToArray()) : null, additionalParameters);
             UpdateAccessToken(token);
             return token;
         }

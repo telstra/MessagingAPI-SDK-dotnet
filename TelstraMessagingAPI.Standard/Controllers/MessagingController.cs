@@ -50,6 +50,95 @@ namespace TelstraMessagingAPI.Standard.Controllers
         #endregion Singleton Pattern
 
         /// <summary>
+        /// Retrieve SMS Responses
+        /// </summary>
+        /// <return>Returns the Models.InboundPollResponse response from the API call</return>
+        public Models.InboundPollResponse RetrieveSMSResponses()
+        {
+            Task<Models.InboundPollResponse> t = RetrieveSMSResponsesAsync();
+            APIHelper.RunTaskSynchronously(t);
+            return t.Result;
+        }
+
+        /// <summary>
+        /// Retrieve SMS Responses
+        /// </summary>
+        /// <return>Returns the Models.InboundPollResponse response from the API call</return>
+        public async Task<Models.InboundPollResponse> RetrieveSMSResponsesAsync()
+        {
+            //Check if authentication token is set
+            AuthManager.Instance.CheckAuthorization();
+            //the base uri for api requests
+            string _baseUri = Configuration.GetBaseURI();
+
+            //prepare query string for API call
+            StringBuilder _queryBuilder = new StringBuilder(_baseUri);
+            _queryBuilder.Append("/messages/sms");
+
+
+            //validate and preprocess url
+            string _queryUrl = APIHelper.CleanUrl(_queryBuilder);
+
+            //append request with appropriate headers and parameters
+            var _headers = new Dictionary<string,string>()
+            {
+                { "user-agent", "APIMATIC 2.0" },
+                { "accept", "application/json" }
+            };
+            _headers.Add("Authorization", string.Format("Bearer {0}", Configuration.OAuthToken.AccessToken));
+
+            //prepare the API call request to fetch the response
+            HttpRequest _request = ClientInstance.Get(_queryUrl,_headers);
+
+            //invoke request and get response
+            HttpStringResponse _response = (HttpStringResponse) await ClientInstance.ExecuteAsStringAsync(_request).ConfigureAwait(false);
+            HttpContext _context = new HttpContext(_request,_response);
+
+            //Error handling using HTTP status codes
+            if (_response.StatusCode == 400)
+                throw new ErrorErrorErrorErrorErrorException(@"Invalid or missing request parameters", _context);
+
+            if (_response.StatusCode == 401)
+                throw new ErrorErrorErrorErrorErrorException(@"Invalid or no credentials passed in the request", _context);
+
+            if (_response.StatusCode == 403)
+                throw new ErrorErrorErrorErrorErrorException(@"Authorization credentials passed and accepted but account does not have permission", _context);
+
+            if (_response.StatusCode == 404)
+                throw new ErrorErrorErrorErrorErrorException(@"The requested URI does not exist", _context);
+
+            if (_response.StatusCode == 405)
+                throw new ErrorErrorErrorErrorErrorException(@"The requested resource does not support the supplied verb", _context);
+
+            if (_response.StatusCode == 415)
+                throw new ErrorErrorErrorErrorErrorException(@"API does not support the requested content type", _context);
+
+            if (_response.StatusCode == 422)
+                throw new ErrorErrorErrorErrorErrorException(@"The request is formed correctly, but due to some condition the request cannot be processed e.g. email is required and it is not provided in the request", _context);
+
+            if (_response.StatusCode == 501)
+                throw new ErrorErrorErrorErrorErrorException(@"The HTTP method being used has not yet been implemented for the requested resource", _context);
+
+            if (_response.StatusCode == 503)
+                throw new ErrorErrorErrorErrorErrorException(@"The service requested is currently unavailable", _context);
+
+            if ((_response.StatusCode < 200) || (_response.StatusCode > 208)) //[200,208] = HTTP OK
+                throw new ErrorErrorErrorErrorErrorException(@"An internal error occurred when processing the request", _context);
+
+            //handle errors defined at the API level
+            base.ValidateResponse(_response, _context);
+
+            try
+            {
+                return APIHelper.JsonDeserialize<Models.InboundPollResponse>(_response.Body);
+            }
+            catch (Exception _ex)
+            {
+                throw new APIException("Failed to parse the response: " + _ex.Message, _context);
+            }
+        }
+
+        /// <summary>
         /// Send SMS
         /// </summary>
         /// <param name="payload">Required parameter: A JSON or XML payload containing the recipient's phone number and text message.  The recipient number should be in the format '04xxxxxxxx' where x is a digit</param>
@@ -426,95 +515,6 @@ namespace TelstraMessagingAPI.Standard.Controllers
             try
             {
                 return APIHelper.JsonDeserialize<List<Models.OutboundPollResponse>>(_response.Body);
-            }
-            catch (Exception _ex)
-            {
-                throw new APIException("Failed to parse the response: " + _ex.Message, _context);
-            }
-        }
-
-        /// <summary>
-        /// Retrieve SMS Responses
-        /// </summary>
-        /// <return>Returns the Models.InboundPollResponse response from the API call</return>
-        public Models.InboundPollResponse RetrieveSMSResponses()
-        {
-            Task<Models.InboundPollResponse> t = RetrieveSMSResponsesAsync();
-            APIHelper.RunTaskSynchronously(t);
-            return t.Result;
-        }
-
-        /// <summary>
-        /// Retrieve SMS Responses
-        /// </summary>
-        /// <return>Returns the Models.InboundPollResponse response from the API call</return>
-        public async Task<Models.InboundPollResponse> RetrieveSMSResponsesAsync()
-        {
-            //Check if authentication token is set
-            AuthManager.Instance.CheckAuthorization();
-            //the base uri for api requests
-            string _baseUri = Configuration.GetBaseURI();
-
-            //prepare query string for API call
-            StringBuilder _queryBuilder = new StringBuilder(_baseUri);
-            _queryBuilder.Append("/messages/sms");
-
-
-            //validate and preprocess url
-            string _queryUrl = APIHelper.CleanUrl(_queryBuilder);
-
-            //append request with appropriate headers and parameters
-            var _headers = new Dictionary<string,string>()
-            {
-                { "user-agent", "APIMATIC 2.0" },
-                { "accept", "application/json" }
-            };
-            _headers.Add("Authorization", string.Format("Bearer {0}", Configuration.OAuthToken.AccessToken));
-
-            //prepare the API call request to fetch the response
-            HttpRequest _request = ClientInstance.Get(_queryUrl,_headers);
-
-            //invoke request and get response
-            HttpStringResponse _response = (HttpStringResponse) await ClientInstance.ExecuteAsStringAsync(_request).ConfigureAwait(false);
-            HttpContext _context = new HttpContext(_request,_response);
-
-            //Error handling using HTTP status codes
-            if (_response.StatusCode == 400)
-                throw new ErrorErrorErrorErrorErrorException(@"Invalid or missing request parameters", _context);
-
-            if (_response.StatusCode == 401)
-                throw new ErrorErrorErrorErrorErrorException(@"Invalid or no credentials passed in the request", _context);
-
-            if (_response.StatusCode == 403)
-                throw new ErrorErrorErrorErrorErrorException(@"Authorization credentials passed and accepted but account does not have permission", _context);
-
-            if (_response.StatusCode == 404)
-                throw new ErrorErrorErrorErrorErrorException(@"The requested URI does not exist", _context);
-
-            if (_response.StatusCode == 405)
-                throw new ErrorErrorErrorErrorErrorException(@"The requested resource does not support the supplied verb", _context);
-
-            if (_response.StatusCode == 415)
-                throw new ErrorErrorErrorErrorErrorException(@"API does not support the requested content type", _context);
-
-            if (_response.StatusCode == 422)
-                throw new ErrorErrorErrorErrorErrorException(@"The request is formed correctly, but due to some condition the request cannot be processed e.g. email is required and it is not provided in the request", _context);
-
-            if (_response.StatusCode == 501)
-                throw new ErrorErrorErrorErrorErrorException(@"The HTTP method being used has not yet been implemented for the requested resource", _context);
-
-            if (_response.StatusCode == 503)
-                throw new ErrorErrorErrorErrorErrorException(@"The service requested is currently unavailable", _context);
-
-            if ((_response.StatusCode < 200) || (_response.StatusCode > 208)) //[200,208] = HTTP OK
-                throw new ErrorErrorErrorErrorErrorException(@"An internal error occurred when processing the request", _context);
-
-            //handle errors defined at the API level
-            base.ValidateResponse(_response, _context);
-
-            try
-            {
-                return APIHelper.JsonDeserialize<Models.InboundPollResponse>(_response.Body);
             }
             catch (Exception _ex)
             {
