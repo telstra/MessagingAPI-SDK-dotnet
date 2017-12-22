@@ -41,7 +41,7 @@ namespace TelstraMessagingAPI.Standard
                     Environments.PRODUCTION,new Dictionary<Servers, string>
                     {
                         { Servers.DEFAULT,"https://tapi.telstra.com/v2" },
-                        { Servers.ACCESS_TOKEN_SERVER,"https://tapi.telstra.com/v1/oauth" },
+                        { Servers.ACCESS_TOKEN_SERVER,"https://tapi.telstra.com/v2/oauth" },
                     }
                 },
             };

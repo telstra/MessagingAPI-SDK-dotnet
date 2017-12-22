@@ -61,7 +61,7 @@ namespace TelstraMessagingAPI.Standard.Models
         /// <param name="value">The string valued enum element value</param>
         private void writeStringValue(JsonWriter writer, object value)
         {
-            Type enumHelperType = loadEnumHelperType(value.GetType());
+            System.Type enumHelperType = loadEnumHelperType(value.GetType());
 #if WINDOWS_UWP || DNXCORE50 || NETSTANDARD1_3
             MethodInfo enumHelperMethod = enumHelperType.GetRuntimeMethod("ToValue", new[] { value.GetType() });
 #else 
@@ -78,8 +78,8 @@ namespace TelstraMessagingAPI.Standard.Models
         /// Load the enum helper class against a given enum type
         /// </summary>
         /// <param name="enumType">The enum type to locate the helper</param>
-        /// <returns>Type of the helper class for the given enum type</returns>
-        private static Type loadEnumHelperType(Type enumType)
+        /// <returns>System.Type of the helper class for the given enum type</returns>
+        private static System.Type loadEnumHelperType(System.Type enumType)
         {
 
 #if WINDOWS_UWP || DNXCORE50 || NETSTANDARD1_3
@@ -91,7 +91,7 @@ namespace TelstraMessagingAPI.Standard.Models
             Assembly assembly = enumType.Assembly;
 #endif
             string enumHelperClassName = string.Format("{0}Helper", isNullableGeneric ? Nullable.GetUnderlyingType(enumType).FullName : enumType.FullName);
-            Type enumHelperType = assembly.GetType(enumHelperClassName);
+            System.Type enumHelperType = assembly.GetType(enumHelperClassName);
 
             if (enumHelperType == null)
                 throw new InvalidCastException("Unable to load enum helper for casting value");
@@ -107,7 +107,7 @@ namespace TelstraMessagingAPI.Standard.Models
         /// <param name="existingValue">The existing value of object being read</param>
         /// <param name="serializer">The calling serializer</param>
         /// <returns>The object value as enum element</returns>
-        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        public override object ReadJson(JsonReader reader, System.Type objectType, object existingValue, JsonSerializer serializer)
         {
             if (reader.TokenType == JsonToken.Null)
                 return null;
@@ -117,7 +117,7 @@ namespace TelstraMessagingAPI.Standard.Models
                 if (reader.TokenType == JsonToken.String)
                 {
                     string enumStringValue = reader.Value.ToString();
-                    Type enumHelperType = loadEnumHelperType(objectType);
+                    System.Type enumHelperType = loadEnumHelperType(objectType);
 #if NETSTANDARD1_3
                     MethodInfo enumHelperMethod = enumHelperType.GetRuntimeMethod("ParseString", new[] { typeof(System.String) });
 #else
@@ -142,13 +142,13 @@ namespace TelstraMessagingAPI.Standard.Models
         /// <returns>
         /// <c>true</c> if this instance can convert the specified object type; otherwise, <c>false</c>.
         /// </returns>
-        public override bool CanConvert(Type objectType)
+        public override bool CanConvert(System.Type objectType)
         {
-            Type toCheck = objectType;
+            System.Type toCheck = objectType;
 #if WINDOWS_UWP || DNXCORE50 || NETSTANDARD1_3
-            Type[] genericArgs = objectType.GenericTypeArguments;
+            System.Type[] genericArgs = objectType.GenericTypeArguments;
 #else
-            Type[] genericArgs = objectType.GetGenericArguments();
+            System.Type[] genericArgs = objectType.GetGenericArguments();
 #endif
             if ((genericArgs != null) && (genericArgs.Length > 0))
                 toCheck = genericArgs[genericArgs.Length - 1];
