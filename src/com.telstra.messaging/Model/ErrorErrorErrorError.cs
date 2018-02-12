@@ -25,26 +25,35 @@ using SwaggerDateConverter = com.telstra.messaging.Client.SwaggerDateConverter;
 namespace com.telstra.messaging.Model
 {
     /// <summary>
-    /// ProvisionNumberResponse
+    /// Returns error status code and message
     /// </summary>
     [DataContract]
-    public partial class ProvisionNumberResponse :  IEquatable<ProvisionNumberResponse>, IValidatableObject
+    public partial class ErrorErrorErrorError :  IEquatable<ErrorErrorErrorError>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisionNumberResponse" /> class.
+        /// Initializes a new instance of the <see cref="ErrorErrorErrorError" /> class.
         /// </summary>
-        /// <param name="DestinationAddress">The mobile phone number that was allocated.</param>
-        public ProvisionNumberResponse(string DestinationAddress = default(string))
+        /// <param name="Status">The status code..</param>
+        /// <param name="Message">Message describing the error..</param>
+        public ErrorErrorErrorError(int? Status = default(int?), string Message = default(string))
         {
-            this.DestinationAddress = DestinationAddress;
+            this.Status = Status;
+            this.Message = Message;
         }
         
         /// <summary>
-        /// The mobile phone number that was allocated
+        /// The status code.
         /// </summary>
-        /// <value>The mobile phone number that was allocated</value>
-        [DataMember(Name="destinationAddress", EmitDefaultValue=false)]
-        public string DestinationAddress { get; set; }
+        /// <value>The status code.</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public int? Status { get; set; }
+
+        /// <summary>
+        /// Message describing the error.
+        /// </summary>
+        /// <value>Message describing the error.</value>
+        [DataMember(Name="message", EmitDefaultValue=false)]
+        public string Message { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +62,9 @@ namespace com.telstra.messaging.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ProvisionNumberResponse {\n");
-            sb.Append("  DestinationAddress: ").Append(DestinationAddress).Append("\n");
+            sb.Append("class ErrorErrorErrorError {\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,24 +85,29 @@ namespace com.telstra.messaging.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisionNumberResponse);
+            return this.Equals(input as ErrorErrorErrorError);
         }
 
         /// <summary>
-        /// Returns true if ProvisionNumberResponse instances are equal
+        /// Returns true if ErrorErrorErrorError instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisionNumberResponse to be compared</param>
+        /// <param name="input">Instance of ErrorErrorErrorError to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisionNumberResponse input)
+        public bool Equals(ErrorErrorErrorError input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.DestinationAddress == input.DestinationAddress ||
-                    (this.DestinationAddress != null &&
-                    this.DestinationAddress.Equals(input.DestinationAddress))
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
                 );
         }
 
@@ -105,8 +120,10 @@ namespace com.telstra.messaging.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DestinationAddress != null)
-                    hashCode = hashCode * 59 + this.DestinationAddress.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Message != null)
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
                 return hashCode;
             }
         }

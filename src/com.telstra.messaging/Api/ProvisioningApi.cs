@@ -31,10 +31,9 @@ namespace com.telstra.messaging.Api
         /// Provision a mobile number
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
         /// <param name="body">A JSON payload containing the required attributes</param>
         /// <returns>ProvisionNumberResponse</returns>
-        ProvisionNumberResponse CreateSubscription (string authorization, ProvisionNumberRequest body);
+        ProvisionNumberResponse CreateSubscription (ProvisionNumberRequest body);
 
         /// <summary>
         /// Create Subscription
@@ -43,10 +42,9 @@ namespace com.telstra.messaging.Api
         /// Provision a mobile number
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
         /// <param name="body">A JSON payload containing the required attributes</param>
         /// <returns>ApiResponse of ProvisionNumberResponse</returns>
-        ApiResponse<ProvisionNumberResponse> CreateSubscriptionWithHttpInfo (string authorization, ProvisionNumberRequest body);
+        ApiResponse<ProvisionNumberResponse> CreateSubscriptionWithHttpInfo (ProvisionNumberRequest body);
         /// <summary>
         /// Delete Subscription
         /// </summary>
@@ -54,9 +52,9 @@ namespace com.telstra.messaging.Api
         /// Delete a mobile number subscription from an account
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
+        /// <param name="body">EmptyArr</param>
         /// <returns></returns>
-        void DeleteSubscription (string authorization);
+        void DeleteSubscription (DeleteNumberRequest body);
 
         /// <summary>
         /// Delete Subscription
@@ -65,9 +63,9 @@ namespace com.telstra.messaging.Api
         /// Delete a mobile number subscription from an account
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
+        /// <param name="body">EmptyArr</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteSubscriptionWithHttpInfo (string authorization);
+        ApiResponse<Object> DeleteSubscriptionWithHttpInfo (DeleteNumberRequest body);
         /// <summary>
         /// Get Subscription
         /// </summary>
@@ -75,9 +73,8 @@ namespace com.telstra.messaging.Api
         /// Get mobile number subscription for an account
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
-        /// <returns>List&lt;ProvisionNumberResponse&gt;</returns>
-        List<ProvisionNumberResponse> GetSubscription (string authorization);
+        /// <returns>GetSubscriptionResponse</returns>
+        GetSubscriptionResponse GetSubscription ();
 
         /// <summary>
         /// Get Subscription
@@ -86,9 +83,8 @@ namespace com.telstra.messaging.Api
         /// Get mobile number subscription for an account
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
-        /// <returns>ApiResponse of List&lt;ProvisionNumberResponse&gt;</returns>
-        ApiResponse<List<ProvisionNumberResponse>> GetSubscriptionWithHttpInfo (string authorization);
+        /// <returns>ApiResponse of GetSubscriptionResponse</returns>
+        ApiResponse<GetSubscriptionResponse> GetSubscriptionWithHttpInfo ();
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -98,10 +94,9 @@ namespace com.telstra.messaging.Api
         /// Provision a mobile number
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
         /// <param name="body">A JSON payload containing the required attributes</param>
         /// <returns>Task of ProvisionNumberResponse</returns>
-        System.Threading.Tasks.Task<ProvisionNumberResponse> CreateSubscriptionAsync (string authorization, ProvisionNumberRequest body);
+        System.Threading.Tasks.Task<ProvisionNumberResponse> CreateSubscriptionAsync (ProvisionNumberRequest body);
 
         /// <summary>
         /// Create Subscription
@@ -110,10 +105,9 @@ namespace com.telstra.messaging.Api
         /// Provision a mobile number
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
         /// <param name="body">A JSON payload containing the required attributes</param>
         /// <returns>Task of ApiResponse (ProvisionNumberResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProvisionNumberResponse>> CreateSubscriptionAsyncWithHttpInfo (string authorization, ProvisionNumberRequest body);
+        System.Threading.Tasks.Task<ApiResponse<ProvisionNumberResponse>> CreateSubscriptionAsyncWithHttpInfo (ProvisionNumberRequest body);
         /// <summary>
         /// Delete Subscription
         /// </summary>
@@ -121,9 +115,9 @@ namespace com.telstra.messaging.Api
         /// Delete a mobile number subscription from an account
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
+        /// <param name="body">EmptyArr</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteSubscriptionAsync (string authorization);
+        System.Threading.Tasks.Task DeleteSubscriptionAsync (DeleteNumberRequest body);
 
         /// <summary>
         /// Delete Subscription
@@ -132,9 +126,9 @@ namespace com.telstra.messaging.Api
         /// Delete a mobile number subscription from an account
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
+        /// <param name="body">EmptyArr</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSubscriptionAsyncWithHttpInfo (string authorization);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSubscriptionAsyncWithHttpInfo (DeleteNumberRequest body);
         /// <summary>
         /// Get Subscription
         /// </summary>
@@ -142,9 +136,8 @@ namespace com.telstra.messaging.Api
         /// Get mobile number subscription for an account
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
-        /// <returns>Task of List&lt;ProvisionNumberResponse&gt;</returns>
-        System.Threading.Tasks.Task<List<ProvisionNumberResponse>> GetSubscriptionAsync (string authorization);
+        /// <returns>Task of GetSubscriptionResponse</returns>
+        System.Threading.Tasks.Task<GetSubscriptionResponse> GetSubscriptionAsync ();
 
         /// <summary>
         /// Get Subscription
@@ -153,9 +146,8 @@ namespace com.telstra.messaging.Api
         /// Get mobile number subscription for an account
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
-        /// <returns>Task of ApiResponse (List&lt;ProvisionNumberResponse&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ProvisionNumberResponse>>> GetSubscriptionAsyncWithHttpInfo (string authorization);
+        /// <returns>Task of ApiResponse (GetSubscriptionResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetSubscriptionResponse>> GetSubscriptionAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
     }
 
@@ -260,12 +252,11 @@ namespace com.telstra.messaging.Api
         /// Create Subscription Provision a mobile number
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
         /// <param name="body">A JSON payload containing the required attributes</param>
         /// <returns>ProvisionNumberResponse</returns>
-        public ProvisionNumberResponse CreateSubscription (string authorization, ProvisionNumberRequest body)
+        public ProvisionNumberResponse CreateSubscription (ProvisionNumberRequest body)
         {
-             ApiResponse<ProvisionNumberResponse> localVarResponse = CreateSubscriptionWithHttpInfo(authorization, body);
+             ApiResponse<ProvisionNumberResponse> localVarResponse = CreateSubscriptionWithHttpInfo(body);
              return localVarResponse.Data;
         }
 
@@ -273,14 +264,10 @@ namespace com.telstra.messaging.Api
         /// Create Subscription Provision a mobile number
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
         /// <param name="body">A JSON payload containing the required attributes</param>
         /// <returns>ApiResponse of ProvisionNumberResponse</returns>
-        public ApiResponse< ProvisionNumberResponse > CreateSubscriptionWithHttpInfo (string authorization, ProvisionNumberRequest body)
+        public ApiResponse< ProvisionNumberResponse > CreateSubscriptionWithHttpInfo (ProvisionNumberRequest body)
         {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling ProvisioningApi->CreateSubscription");
             // verify the required parameter 'body' is set
             if (body == null)
                 throw new ApiException(400, "Missing required parameter 'body' when calling ProvisioningApi->CreateSubscription");
@@ -307,7 +294,6 @@ namespace com.telstra.messaging.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -346,12 +332,11 @@ namespace com.telstra.messaging.Api
         /// Create Subscription Provision a mobile number
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
         /// <param name="body">A JSON payload containing the required attributes</param>
         /// <returns>Task of ProvisionNumberResponse</returns>
-        public async System.Threading.Tasks.Task<ProvisionNumberResponse> CreateSubscriptionAsync (string authorization, ProvisionNumberRequest body)
+        public async System.Threading.Tasks.Task<ProvisionNumberResponse> CreateSubscriptionAsync (ProvisionNumberRequest body)
         {
-             ApiResponse<ProvisionNumberResponse> localVarResponse = await CreateSubscriptionAsyncWithHttpInfo(authorization, body);
+             ApiResponse<ProvisionNumberResponse> localVarResponse = await CreateSubscriptionAsyncWithHttpInfo(body);
              return localVarResponse.Data;
 
         }
@@ -360,14 +345,10 @@ namespace com.telstra.messaging.Api
         /// Create Subscription Provision a mobile number
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
         /// <param name="body">A JSON payload containing the required attributes</param>
         /// <returns>Task of ApiResponse (ProvisionNumberResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ProvisionNumberResponse>> CreateSubscriptionAsyncWithHttpInfo (string authorization, ProvisionNumberRequest body)
+        public async System.Threading.Tasks.Task<ApiResponse<ProvisionNumberResponse>> CreateSubscriptionAsyncWithHttpInfo (ProvisionNumberRequest body)
         {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling ProvisioningApi->CreateSubscription");
             // verify the required parameter 'body' is set
             if (body == null)
                 throw new ApiException(400, "Missing required parameter 'body' when calling ProvisioningApi->CreateSubscription");
@@ -394,7 +375,6 @@ namespace com.telstra.messaging.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -433,24 +413,24 @@ namespace com.telstra.messaging.Api
         /// Delete Subscription Delete a mobile number subscription from an account
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
+        /// <param name="body">EmptyArr</param>
         /// <returns></returns>
-        public void DeleteSubscription (string authorization)
+        public void DeleteSubscription (DeleteNumberRequest body)
         {
-             DeleteSubscriptionWithHttpInfo(authorization);
+             DeleteSubscriptionWithHttpInfo(body);
         }
 
         /// <summary>
         /// Delete Subscription Delete a mobile number subscription from an account
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
+        /// <param name="body">EmptyArr</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteSubscriptionWithHttpInfo (string authorization)
+        public ApiResponse<Object> DeleteSubscriptionWithHttpInfo (DeleteNumberRequest body)
         {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling ProvisioningApi->DeleteSubscription");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling ProvisioningApi->DeleteSubscription");
 
             var localVarPath = "/messages/provisioning/subscriptions";
             var localVarPathParams = new Dictionary<String, String>();
@@ -474,7 +454,14 @@ namespace com.telstra.messaging.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
 
             // authentication (auth) required
             // oauth required
@@ -505,11 +492,11 @@ namespace com.telstra.messaging.Api
         /// Delete Subscription Delete a mobile number subscription from an account
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
+        /// <param name="body">EmptyArr</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteSubscriptionAsync (string authorization)
+        public async System.Threading.Tasks.Task DeleteSubscriptionAsync (DeleteNumberRequest body)
         {
-             await DeleteSubscriptionAsyncWithHttpInfo(authorization);
+             await DeleteSubscriptionAsyncWithHttpInfo(body);
 
         }
 
@@ -517,13 +504,13 @@ namespace com.telstra.messaging.Api
         /// Delete Subscription Delete a mobile number subscription from an account
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
+        /// <param name="body">EmptyArr</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSubscriptionAsyncWithHttpInfo (string authorization)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSubscriptionAsyncWithHttpInfo (DeleteNumberRequest body)
         {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling ProvisioningApi->DeleteSubscription");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling ProvisioningApi->DeleteSubscription");
 
             var localVarPath = "/messages/provisioning/subscriptions";
             var localVarPathParams = new Dictionary<String, String>();
@@ -547,7 +534,14 @@ namespace com.telstra.messaging.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
 
             // authentication (auth) required
             // oauth required
@@ -578,11 +572,10 @@ namespace com.telstra.messaging.Api
         /// Get Subscription Get mobile number subscription for an account
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
-        /// <returns>List&lt;ProvisionNumberResponse&gt;</returns>
-        public List<ProvisionNumberResponse> GetSubscription (string authorization)
+        /// <returns>GetSubscriptionResponse</returns>
+        public GetSubscriptionResponse GetSubscription ()
         {
-             ApiResponse<List<ProvisionNumberResponse>> localVarResponse = GetSubscriptionWithHttpInfo(authorization);
+             ApiResponse<GetSubscriptionResponse> localVarResponse = GetSubscriptionWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -590,13 +583,9 @@ namespace com.telstra.messaging.Api
         /// Get Subscription Get mobile number subscription for an account
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
-        /// <returns>ApiResponse of List&lt;ProvisionNumberResponse&gt;</returns>
-        public ApiResponse< List<ProvisionNumberResponse> > GetSubscriptionWithHttpInfo (string authorization)
+        /// <returns>ApiResponse of GetSubscriptionResponse</returns>
+        public ApiResponse< GetSubscriptionResponse > GetSubscriptionWithHttpInfo ()
         {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling ProvisioningApi->GetSubscription");
 
             var localVarPath = "/messages/provisioning/subscriptions";
             var localVarPathParams = new Dictionary<String, String>();
@@ -620,7 +609,6 @@ namespace com.telstra.messaging.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
             // authentication (auth) required
             // oauth required
@@ -642,20 +630,19 @@ namespace com.telstra.messaging.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<List<ProvisionNumberResponse>>(localVarStatusCode,
+            return new ApiResponse<GetSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (List<ProvisionNumberResponse>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<ProvisionNumberResponse>)));
+                (GetSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionResponse)));
         }
 
         /// <summary>
         /// Get Subscription Get mobile number subscription for an account
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
-        /// <returns>Task of List&lt;ProvisionNumberResponse&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ProvisionNumberResponse>> GetSubscriptionAsync (string authorization)
+        /// <returns>Task of GetSubscriptionResponse</returns>
+        public async System.Threading.Tasks.Task<GetSubscriptionResponse> GetSubscriptionAsync ()
         {
-             ApiResponse<List<ProvisionNumberResponse>> localVarResponse = await GetSubscriptionAsyncWithHttpInfo(authorization);
+             ApiResponse<GetSubscriptionResponse> localVarResponse = await GetSubscriptionAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -664,13 +651,9 @@ namespace com.telstra.messaging.Api
         /// Get Subscription Get mobile number subscription for an account
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="authorization">An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope.</param>
-        /// <returns>Task of ApiResponse (List&lt;ProvisionNumberResponse&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<ProvisionNumberResponse>>> GetSubscriptionAsyncWithHttpInfo (string authorization)
+        /// <returns>Task of ApiResponse (GetSubscriptionResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<GetSubscriptionResponse>> GetSubscriptionAsyncWithHttpInfo ()
         {
-            // verify the required parameter 'authorization' is set
-            if (authorization == null)
-                throw new ApiException(400, "Missing required parameter 'authorization' when calling ProvisioningApi->GetSubscription");
 
             var localVarPath = "/messages/provisioning/subscriptions";
             var localVarPathParams = new Dictionary<String, String>();
@@ -694,7 +677,6 @@ namespace com.telstra.messaging.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
             // authentication (auth) required
             // oauth required
@@ -716,9 +698,9 @@ namespace com.telstra.messaging.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<List<ProvisionNumberResponse>>(localVarStatusCode,
+            return new ApiResponse<GetSubscriptionResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (List<ProvisionNumberResponse>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<ProvisionNumberResponse>)));
+                (GetSubscriptionResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(GetSubscriptionResponse)));
         }
 
     }

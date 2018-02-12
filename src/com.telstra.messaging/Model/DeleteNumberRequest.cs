@@ -25,26 +25,34 @@ using SwaggerDateConverter = com.telstra.messaging.Client.SwaggerDateConverter;
 namespace com.telstra.messaging.Model
 {
     /// <summary>
-    /// ProvisionNumberResponse
+    /// DeleteNumberRequest
     /// </summary>
     [DataContract]
-    public partial class ProvisionNumberResponse :  IEquatable<ProvisionNumberResponse>, IValidatableObject
+    public partial class DeleteNumberRequest :  IEquatable<DeleteNumberRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisionNumberResponse" /> class.
+        /// Initializes a new instance of the <see cref="DeleteNumberRequest" /> class.
         /// </summary>
-        /// <param name="DestinationAddress">The mobile phone number that was allocated.</param>
-        public ProvisionNumberResponse(string DestinationAddress = default(string))
+        /// <param name="EmptyArr">Empty Arr (default to 0).</param>
+        public DeleteNumberRequest(int? EmptyArr = 0)
         {
-            this.DestinationAddress = DestinationAddress;
+            // use default value if no "EmptyArr" provided
+            if (EmptyArr == null)
+            {
+                this.EmptyArr = 0;
+            }
+            else
+            {
+                this.EmptyArr = EmptyArr;
+            }
         }
         
         /// <summary>
-        /// The mobile phone number that was allocated
+        /// Empty Arr
         /// </summary>
-        /// <value>The mobile phone number that was allocated</value>
-        [DataMember(Name="destinationAddress", EmitDefaultValue=false)]
-        public string DestinationAddress { get; set; }
+        /// <value>Empty Arr</value>
+        [DataMember(Name="emptyArr", EmitDefaultValue=false)]
+        public int? EmptyArr { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +61,8 @@ namespace com.telstra.messaging.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ProvisionNumberResponse {\n");
-            sb.Append("  DestinationAddress: ").Append(DestinationAddress).Append("\n");
+            sb.Append("class DeleteNumberRequest {\n");
+            sb.Append("  EmptyArr: ").Append(EmptyArr).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,24 +83,24 @@ namespace com.telstra.messaging.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisionNumberResponse);
+            return this.Equals(input as DeleteNumberRequest);
         }
 
         /// <summary>
-        /// Returns true if ProvisionNumberResponse instances are equal
+        /// Returns true if DeleteNumberRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisionNumberResponse to be compared</param>
+        /// <param name="input">Instance of DeleteNumberRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisionNumberResponse input)
+        public bool Equals(DeleteNumberRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.DestinationAddress == input.DestinationAddress ||
-                    (this.DestinationAddress != null &&
-                    this.DestinationAddress.Equals(input.DestinationAddress))
+                    this.EmptyArr == input.EmptyArr ||
+                    (this.EmptyArr != null &&
+                    this.EmptyArr.Equals(input.EmptyArr))
                 );
         }
 
@@ -105,8 +113,8 @@ namespace com.telstra.messaging.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DestinationAddress != null)
-                    hashCode = hashCode * 59 + this.DestinationAddress.GetHashCode();
+                if (this.EmptyArr != null)
+                    hashCode = hashCode * 59 + this.EmptyArr.GetHashCode();
                 return hashCode;
             }
         }

@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 <a name="createsubscription"></a>
 # **CreateSubscription**
-> ProvisionNumberResponse CreateSubscription (string authorization, ProvisionNumberRequest body)
+> ProvisionNumberResponse CreateSubscription (ProvisionNumberRequest body)
 
 Create Subscription
 
@@ -35,13 +35,12 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProvisioningApi();
-            var authorization = authorization_example;  // string | An OAUTH bearer token that is entitled to use the 'SUBSCRIPTION' scope.
             var body = new ProvisionNumberRequest(); // ProvisionNumberRequest | A JSON payload containing the required attributes
 
             try
             {
                 // Create Subscription
-                ProvisionNumberResponse result = apiInstance.CreateSubscription(authorization, body);
+                ProvisionNumberResponse result = apiInstance.CreateSubscription(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -57,7 +56,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **string**| An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope. | 
  **body** | [**ProvisionNumberRequest**](ProvisionNumberRequest.md)| A JSON payload containing the required attributes | 
 
 ### Return type
@@ -77,7 +75,7 @@ Name | Type | Description  | Notes
 
 <a name="deletesubscription"></a>
 # **DeleteSubscription**
-> void DeleteSubscription (string authorization)
+> void DeleteSubscription (DeleteNumberRequest body)
 
 Delete Subscription
 
@@ -101,12 +99,12 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProvisioningApi();
-            var authorization = authorization_example;  // string | An OAUTH bearer token that is entitled to use the 'SUBSCRIPTION' scope.
+            var body = new DeleteNumberRequest(); // DeleteNumberRequest | EmptyArr
 
             try
             {
                 // Delete Subscription
-                apiInstance.DeleteSubscription(authorization);
+                apiInstance.DeleteSubscription(body);
             }
             catch (Exception e)
             {
@@ -121,7 +119,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **string**| An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope. | 
+ **body** | [**DeleteNumberRequest**](DeleteNumberRequest.md)| EmptyArr | 
 
 ### Return type
 
@@ -140,7 +138,7 @@ void (empty response body)
 
 <a name="getsubscription"></a>
 # **GetSubscription**
-> List<ProvisionNumberResponse> GetSubscription (string authorization)
+> GetSubscriptionResponse GetSubscription ()
 
 Get Subscription
 
@@ -164,12 +162,11 @@ namespace Example
             Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProvisioningApi();
-            var authorization = authorization_example;  // string | An OAUTH bearer token that is entitled to use the 'SUBSCRIPTION' scope.
 
             try
             {
                 // Get Subscription
-                List&lt;ProvisionNumberResponse&gt; result = apiInstance.GetSubscription(authorization);
+                GetSubscriptionResponse result = apiInstance.GetSubscription();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -182,14 +179,11 @@ namespace Example
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authorization** | **string**| An OAUTH bearer token that is entitled to use the &#39;SUBSCRIPTION&#39; scope. | 
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<ProvisionNumberResponse>**](ProvisionNumberResponse.md)
+[**GetSubscriptionResponse**](GetSubscriptionResponse.md)
 
 ### Authorization
 

@@ -4,7 +4,7 @@
 
 
 - API version: 2.2.4
-- SDK version: 1.0.1
+- SDK version: 1.0.2
 
 <a name="frameworks-supported"></a>
 ## Frameworks supported
@@ -107,8 +107,10 @@ Class | Method | HTTP request | Description
 <a name="documentation-for-models"></a>
 ## Documentation for Models
 
+ - [Model.DeleteNumberRequest](docs/DeleteNumberRequest.md)
  - [Model.ErrorError](docs/ErrorError.md)
  - [Model.ErrorErrorError](docs/ErrorErrorError.md)
+ - [Model.GetSubscriptionResponse](docs/GetSubscriptionResponse.md)
  - [Model.InboundPollResponse](docs/InboundPollResponse.md)
  - [Model.MMSContent](docs/MMSContent.md)
  - [Model.Message](docs/Message.md)
@@ -125,14 +127,14 @@ Class | Method | HTTP request | Description
 
 
 <a name="documentation-for-authorization"></a>
-## Documentation for Authorization
+## Documentation for Authorisation
 
 <a name="auth"></a>
 ### auth
 
 - **Type**: OAuth
 - **Flow**: application
-- **Authorization URL**: 
+- **Authorisation URL**: 
 - **Scopes**: 
   - NSMS: NSMS
 

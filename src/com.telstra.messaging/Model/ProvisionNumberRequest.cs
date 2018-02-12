@@ -33,8 +33,8 @@ namespace com.telstra.messaging.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProvisionNumberRequest" /> class.
         /// </summary>
-        /// <param name="ActiveDays">ActiveDays.</param>
-        /// <param name="NotifyURL">NotifyURL.</param>
+        /// <param name="ActiveDays">Number of active days.</param>
+        /// <param name="NotifyURL">Notify url.</param>
         public ProvisionNumberRequest(int? ActiveDays = default(int?), string NotifyURL = default(string))
         {
             this.ActiveDays = ActiveDays;
@@ -42,14 +42,16 @@ namespace com.telstra.messaging.Model
         }
         
         /// <summary>
-        /// Gets or Sets ActiveDays
+        /// Number of active days
         /// </summary>
+        /// <value>Number of active days</value>
         [DataMember(Name="activeDays", EmitDefaultValue=false)]
         public int? ActiveDays { get; set; }
 
         /// <summary>
-        /// Gets or Sets NotifyURL
+        /// Notify url
         /// </summary>
+        /// <value>Notify url</value>
         [DataMember(Name="notifyURL", EmitDefaultValue=false)]
         public string NotifyURL { get; set; }
 

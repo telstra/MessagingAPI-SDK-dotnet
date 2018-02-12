@@ -25,26 +25,48 @@ using SwaggerDateConverter = com.telstra.messaging.Client.SwaggerDateConverter;
 namespace com.telstra.messaging.Model
 {
     /// <summary>
-    /// ProvisionNumberResponse
+    /// ErrorErrorError62
     /// </summary>
     [DataContract]
-    public partial class ProvisionNumberResponse :  IEquatable<ProvisionNumberResponse>, IValidatableObject
+    public partial class ErrorErrorError62 :  IEquatable<ErrorErrorError62>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisionNumberResponse" /> class.
+        /// Initializes a new instance of the <see cref="ErrorErrorError62" /> class.
         /// </summary>
-        /// <param name="DestinationAddress">The mobile phone number that was allocated.</param>
-        public ProvisionNumberResponse(string DestinationAddress = default(string))
+        [JsonConstructorAttribute]
+        protected ErrorErrorError62() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ErrorErrorError62" /> class.
+        /// </summary>
+        /// <param name="Status">A short error code (required).</param>
+        /// <param name="Message">Message describing the error..</param>
+        public ErrorErrorError62(string Status = default(string), string Message = default(string))
         {
-            this.DestinationAddress = DestinationAddress;
+            // to ensure "Status" is required (not null)
+            if (Status == null)
+            {
+                throw new InvalidDataException("Status is a required property for ErrorErrorError62 and cannot be null");
+            }
+            else
+            {
+                this.Status = Status;
+            }
+            this.Message = Message;
         }
         
         /// <summary>
-        /// The mobile phone number that was allocated
+        /// A short error code
         /// </summary>
-        /// <value>The mobile phone number that was allocated</value>
-        [DataMember(Name="destinationAddress", EmitDefaultValue=false)]
-        public string DestinationAddress { get; set; }
+        /// <value>A short error code</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
+
+        /// <summary>
+        /// Message describing the error.
+        /// </summary>
+        /// <value>Message describing the error.</value>
+        [DataMember(Name="message", EmitDefaultValue=false)]
+        public string Message { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +75,9 @@ namespace com.telstra.messaging.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ProvisionNumberResponse {\n");
-            sb.Append("  DestinationAddress: ").Append(DestinationAddress).Append("\n");
+            sb.Append("class ErrorErrorError62 {\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,24 +98,29 @@ namespace com.telstra.messaging.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisionNumberResponse);
+            return this.Equals(input as ErrorErrorError62);
         }
 
         /// <summary>
-        /// Returns true if ProvisionNumberResponse instances are equal
+        /// Returns true if ErrorErrorError62 instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisionNumberResponse to be compared</param>
+        /// <param name="input">Instance of ErrorErrorError62 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisionNumberResponse input)
+        public bool Equals(ErrorErrorError62 input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.DestinationAddress == input.DestinationAddress ||
-                    (this.DestinationAddress != null &&
-                    this.DestinationAddress.Equals(input.DestinationAddress))
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
                 );
         }
 
@@ -105,8 +133,10 @@ namespace com.telstra.messaging.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.DestinationAddress != null)
-                    hashCode = hashCode * 59 + this.DestinationAddress.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Message != null)
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
                 return hashCode;
             }
         }

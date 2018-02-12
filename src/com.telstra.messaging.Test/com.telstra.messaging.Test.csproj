@@ -81,7 +81,7 @@ OpenAPI spec version: 2.2.4
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\com.telstra.messaging\com.telstra.messaging.csproj">
-          <Project>{3E452960-A5B4-4764-8B04-BE5AAAD74778}</Project>
+          <Project>{C0869B26-6FED-45CB-88E0-8AD7E6B96330}</Project>
           <Name>com.telstra.messaging</Name>
       </ProjectReference>
   </ItemGroup>

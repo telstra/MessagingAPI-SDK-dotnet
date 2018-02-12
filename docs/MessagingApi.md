@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="getmmsstatus"></a>
 # **GetMMSStatus**
-> OutboundPollResponse GetMMSStatus (string messageid)
+> List<OutboundPollResponse> GetMMSStatus (string messageid)
 
 Get MMS Status
 
@@ -42,7 +42,7 @@ namespace Example
             try
             {
                 // Get MMS Status
-                OutboundPollResponse result = apiInstance.GetMMSStatus(messageid);
+                List&lt;OutboundPollResponse&gt; result = apiInstance.GetMMSStatus(messageid);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -62,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OutboundPollResponse**](OutboundPollResponse.md)
+[**List<OutboundPollResponse>**](OutboundPollResponse.md)
 
 ### Authorization
 
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 <a name="getsmsstatus"></a>
 # **GetSMSStatus**
-> OutboundPollResponse GetSMSStatus (string messageId)
+> List<OutboundPollResponse> GetSMSStatus (string messageId)
 
 Get SMS Status
 
@@ -106,7 +106,7 @@ namespace Example
             try
             {
                 // Get SMS Status
-                OutboundPollResponse result = apiInstance.GetSMSStatus(messageId);
+                List&lt;OutboundPollResponse&gt; result = apiInstance.GetSMSStatus(messageId);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**OutboundPollResponse**](OutboundPollResponse.md)
+[**List<OutboundPollResponse>**](OutboundPollResponse.md)
 
 ### Authorization
 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 
 <a name="retrievesmsresponses"></a>
 # **RetrieveSMSResponses**
-> List<InboundPollResponse> RetrieveSMSResponses ()
+> InboundPollResponse RetrieveSMSResponses ()
 
 Retrieve SMS Responses
 
@@ -169,7 +169,7 @@ namespace Example
             try
             {
                 // Retrieve SMS Responses
-                List&lt;InboundPollResponse&gt; result = apiInstance.RetrieveSMSResponses();
+                InboundPollResponse result = apiInstance.RetrieveSMSResponses();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -186,7 +186,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<InboundPollResponse>**](InboundPollResponse.md)
+[**InboundPollResponse**](InboundPollResponse.md)
 
 ### Authorization
 
@@ -201,7 +201,7 @@ This endpoint does not need any parameter.
 
 <a name="sendmms"></a>
 # **SendMMS**
-> Object SendMMS (SendMmsRequest body)
+> MessageSentResponse SendMMS (SendMmsRequest body)
 
 Send MMS
 
@@ -230,7 +230,7 @@ namespace Example
             try
             {
                 // Send MMS
-                Object result = apiInstance.SendMMS(body);
+                MessageSentResponse result = apiInstance.SendMMS(body);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -250,7 +250,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**Object**
+[**MessageSentResponse**](MessageSentResponse.md)
 
 ### Authorization
 

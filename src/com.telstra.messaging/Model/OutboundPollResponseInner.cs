@@ -25,78 +25,52 @@ using SwaggerDateConverter = com.telstra.messaging.Client.SwaggerDateConverter;
 namespace com.telstra.messaging.Model
 {
     /// <summary>
-    /// Message
+    /// OutboundPollResponseInner
     /// </summary>
     [DataContract]
-    public partial class Message :  IEquatable<Message>, IValidatableObject
+    public partial class OutboundPollResponseInner :  IEquatable<OutboundPollResponseInner>, IValidatableObject
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Message" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        protected Message() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Message" /> class.
-        /// </summary>
-        /// <param name="To">To (required).</param>
-        /// <param name="DeliveryStatus">DeliveryStatus (required).</param>
-        /// <param name="MessageId">MessageId (required).</param>
-        /// <param name="MessageStatusURL">MessageStatusURL.</param>
-        public Message(string To = default(string), string DeliveryStatus = default(string), string MessageId = default(string), string MessageStatusURL = default(string))
-        {
-            // to ensure "To" is required (not null)
-            if (To == null)
-            {
-                throw new InvalidDataException("To is a required property for Message and cannot be null");
-            }
-            else
-            {
-                this.To = To;
-            }
-            // to ensure "DeliveryStatus" is required (not null)
-            if (DeliveryStatus == null)
-            {
-                throw new InvalidDataException("DeliveryStatus is a required property for Message and cannot be null");
-            }
-            else
-            {
-                this.DeliveryStatus = DeliveryStatus;
-            }
-            // to ensure "MessageId" is required (not null)
-            if (MessageId == null)
-            {
-                throw new InvalidDataException("MessageId is a required property for Message and cannot be null");
-            }
-            else
-            {
-                this.MessageId = MessageId;
-            }
-            this.MessageStatusURL = MessageStatusURL;
-        }
-        
-        /// <summary>
-        /// Gets or Sets To
-        /// </summary>
-        [DataMember(Name="to", EmitDefaultValue=false)]
-        public string To { get; set; }
-
         /// <summary>
         /// Gets or Sets DeliveryStatus
         /// </summary>
         [DataMember(Name="deliveryStatus", EmitDefaultValue=false)]
-        public string DeliveryStatus { get; set; }
+        public Status? DeliveryStatus { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OutboundPollResponseInner" /> class.
+        /// </summary>
+        /// <param name="To">The phone number (recipient) the message was sent to (in E.164 format)..</param>
+        /// <param name="ReceivedTimestamp">The date and time when the message was recieved by recipient..</param>
+        /// <param name="SentTimestamp">The date and time when the message was sent..</param>
+        /// <param name="DeliveryStatus">DeliveryStatus.</param>
+        public OutboundPollResponseInner(string To = default(string), string ReceivedTimestamp = default(string), string SentTimestamp = default(string), Status? DeliveryStatus = default(Status?))
+        {
+            this.To = To;
+            this.ReceivedTimestamp = ReceivedTimestamp;
+            this.SentTimestamp = SentTimestamp;
+            this.DeliveryStatus = DeliveryStatus;
+        }
+        
+        /// <summary>
+        /// The phone number (recipient) the message was sent to (in E.164 format).
+        /// </summary>
+        /// <value>The phone number (recipient) the message was sent to (in E.164 format).</value>
+        [DataMember(Name="to", EmitDefaultValue=false)]
+        public string To { get; set; }
 
         /// <summary>
-        /// Gets or Sets MessageId
+        /// The date and time when the message was recieved by recipient.
         /// </summary>
-        [DataMember(Name="messageId", EmitDefaultValue=false)]
-        public string MessageId { get; set; }
+        /// <value>The date and time when the message was recieved by recipient.</value>
+        [DataMember(Name="receivedTimestamp", EmitDefaultValue=false)]
+        public string ReceivedTimestamp { get; set; }
 
         /// <summary>
-        /// Gets or Sets MessageStatusURL
+        /// The date and time when the message was sent.
         /// </summary>
-        [DataMember(Name="messageStatusURL", EmitDefaultValue=false)]
-        public string MessageStatusURL { get; set; }
+        /// <value>The date and time when the message was sent.</value>
+        [DataMember(Name="sentTimestamp", EmitDefaultValue=false)]
+        public string SentTimestamp { get; set; }
+
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -105,11 +79,11 @@ namespace com.telstra.messaging.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Message {\n");
+            sb.Append("class OutboundPollResponseInner {\n");
             sb.Append("  To: ").Append(To).Append("\n");
+            sb.Append("  ReceivedTimestamp: ").Append(ReceivedTimestamp).Append("\n");
+            sb.Append("  SentTimestamp: ").Append(SentTimestamp).Append("\n");
             sb.Append("  DeliveryStatus: ").Append(DeliveryStatus).Append("\n");
-            sb.Append("  MessageId: ").Append(MessageId).Append("\n");
-            sb.Append("  MessageStatusURL: ").Append(MessageStatusURL).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,15 +104,15 @@ namespace com.telstra.messaging.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Message);
+            return this.Equals(input as OutboundPollResponseInner);
         }
 
         /// <summary>
-        /// Returns true if Message instances are equal
+        /// Returns true if OutboundPollResponseInner instances are equal
         /// </summary>
-        /// <param name="input">Instance of Message to be compared</param>
+        /// <param name="input">Instance of OutboundPollResponseInner to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Message input)
+        public bool Equals(OutboundPollResponseInner input)
         {
             if (input == null)
                 return false;
@@ -150,19 +124,19 @@ namespace com.telstra.messaging.Model
                     this.To.Equals(input.To))
                 ) && 
                 (
+                    this.ReceivedTimestamp == input.ReceivedTimestamp ||
+                    (this.ReceivedTimestamp != null &&
+                    this.ReceivedTimestamp.Equals(input.ReceivedTimestamp))
+                ) && 
+                (
+                    this.SentTimestamp == input.SentTimestamp ||
+                    (this.SentTimestamp != null &&
+                    this.SentTimestamp.Equals(input.SentTimestamp))
+                ) && 
+                (
                     this.DeliveryStatus == input.DeliveryStatus ||
                     (this.DeliveryStatus != null &&
                     this.DeliveryStatus.Equals(input.DeliveryStatus))
-                ) && 
-                (
-                    this.MessageId == input.MessageId ||
-                    (this.MessageId != null &&
-                    this.MessageId.Equals(input.MessageId))
-                ) && 
-                (
-                    this.MessageStatusURL == input.MessageStatusURL ||
-                    (this.MessageStatusURL != null &&
-                    this.MessageStatusURL.Equals(input.MessageStatusURL))
                 );
         }
 
@@ -177,12 +151,12 @@ namespace com.telstra.messaging.Model
                 int hashCode = 41;
                 if (this.To != null)
                     hashCode = hashCode * 59 + this.To.GetHashCode();
+                if (this.ReceivedTimestamp != null)
+                    hashCode = hashCode * 59 + this.ReceivedTimestamp.GetHashCode();
+                if (this.SentTimestamp != null)
+                    hashCode = hashCode * 59 + this.SentTimestamp.GetHashCode();
                 if (this.DeliveryStatus != null)
                     hashCode = hashCode * 59 + this.DeliveryStatus.GetHashCode();
-                if (this.MessageId != null)
-                    hashCode = hashCode * 59 + this.MessageId.GetHashCode();
-                if (this.MessageStatusURL != null)
-                    hashCode = hashCode * 59 + this.MessageStatusURL.GetHashCode();
                 return hashCode;
             }
         }

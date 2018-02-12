@@ -32,8 +32,8 @@ namespace com.telstra.messaging.Api
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageid">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/mms</param>
-        /// <returns>OutboundPollResponse</returns>
-        OutboundPollResponse GetMMSStatus (string messageid);
+        /// <returns>List&lt;OutboundPollResponse&gt;</returns>
+        List<OutboundPollResponse> GetMMSStatus (string messageid);
 
         /// <summary>
         /// Get MMS Status
@@ -43,8 +43,8 @@ namespace com.telstra.messaging.Api
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageid">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/mms</param>
-        /// <returns>ApiResponse of OutboundPollResponse</returns>
-        ApiResponse<OutboundPollResponse> GetMMSStatusWithHttpInfo (string messageid);
+        /// <returns>ApiResponse of List&lt;OutboundPollResponse&gt;</returns>
+        ApiResponse<List<OutboundPollResponse>> GetMMSStatusWithHttpInfo (string messageid);
         /// <summary>
         /// Get SMS Status
         /// </summary>
@@ -53,8 +53,8 @@ namespace com.telstra.messaging.Api
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/sms</param>
-        /// <returns>OutboundPollResponse</returns>
-        OutboundPollResponse GetSMSStatus (string messageId);
+        /// <returns>List&lt;OutboundPollResponse&gt;</returns>
+        List<OutboundPollResponse> GetSMSStatus (string messageId);
 
         /// <summary>
         /// Get SMS Status
@@ -64,8 +64,8 @@ namespace com.telstra.messaging.Api
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/sms</param>
-        /// <returns>ApiResponse of OutboundPollResponse</returns>
-        ApiResponse<OutboundPollResponse> GetSMSStatusWithHttpInfo (string messageId);
+        /// <returns>ApiResponse of List&lt;OutboundPollResponse&gt;</returns>
+        ApiResponse<List<OutboundPollResponse>> GetSMSStatusWithHttpInfo (string messageId);
         /// <summary>
         /// Retrieve SMS Responses
         /// </summary>
@@ -73,8 +73,8 @@ namespace com.telstra.messaging.Api
         /// Retrieve Messages
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;InboundPollResponse&gt;</returns>
-        List<InboundPollResponse> RetrieveSMSResponses ();
+        /// <returns>InboundPollResponse</returns>
+        InboundPollResponse RetrieveSMSResponses ();
 
         /// <summary>
         /// Retrieve SMS Responses
@@ -83,8 +83,8 @@ namespace com.telstra.messaging.Api
         /// Retrieve Messages
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;InboundPollResponse&gt;</returns>
-        ApiResponse<List<InboundPollResponse>> RetrieveSMSResponsesWithHttpInfo ();
+        /// <returns>ApiResponse of InboundPollResponse</returns>
+        ApiResponse<InboundPollResponse> RetrieveSMSResponsesWithHttpInfo ();
         /// <summary>
         /// Send MMS
         /// </summary>
@@ -93,8 +93,8 @@ namespace com.telstra.messaging.Api
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">A JSON or XML payload containing the recipient&#39;s phone number and MMS message.The recipient number should be in the format &#39;04xxxxxxxx&#39; where x is a digit</param>
-        /// <returns>Object</returns>
-        Object SendMMS (SendMmsRequest body);
+        /// <returns>MessageSentResponse</returns>
+        MessageSentResponse SendMMS (SendMmsRequest body);
 
         /// <summary>
         /// Send MMS
@@ -104,8 +104,8 @@ namespace com.telstra.messaging.Api
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">A JSON or XML payload containing the recipient&#39;s phone number and MMS message.The recipient number should be in the format &#39;04xxxxxxxx&#39; where x is a digit</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> SendMMSWithHttpInfo (SendMmsRequest body);
+        /// <returns>ApiResponse of MessageSentResponse</returns>
+        ApiResponse<MessageSentResponse> SendMMSWithHttpInfo (SendMmsRequest body);
         /// <summary>
         /// Send SMS
         /// </summary>
@@ -137,8 +137,8 @@ namespace com.telstra.messaging.Api
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageid">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/mms</param>
-        /// <returns>Task of OutboundPollResponse</returns>
-        System.Threading.Tasks.Task<OutboundPollResponse> GetMMSStatusAsync (string messageid);
+        /// <returns>Task of List&lt;OutboundPollResponse&gt;</returns>
+        System.Threading.Tasks.Task<List<OutboundPollResponse>> GetMMSStatusAsync (string messageid);
 
         /// <summary>
         /// Get MMS Status
@@ -148,8 +148,8 @@ namespace com.telstra.messaging.Api
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageid">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/mms</param>
-        /// <returns>Task of ApiResponse (OutboundPollResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OutboundPollResponse>> GetMMSStatusAsyncWithHttpInfo (string messageid);
+        /// <returns>Task of ApiResponse (List&lt;OutboundPollResponse&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<OutboundPollResponse>>> GetMMSStatusAsyncWithHttpInfo (string messageid);
         /// <summary>
         /// Get SMS Status
         /// </summary>
@@ -158,8 +158,8 @@ namespace com.telstra.messaging.Api
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/sms</param>
-        /// <returns>Task of OutboundPollResponse</returns>
-        System.Threading.Tasks.Task<OutboundPollResponse> GetSMSStatusAsync (string messageId);
+        /// <returns>Task of List&lt;OutboundPollResponse&gt;</returns>
+        System.Threading.Tasks.Task<List<OutboundPollResponse>> GetSMSStatusAsync (string messageId);
 
         /// <summary>
         /// Get SMS Status
@@ -169,8 +169,8 @@ namespace com.telstra.messaging.Api
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/sms</param>
-        /// <returns>Task of ApiResponse (OutboundPollResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OutboundPollResponse>> GetSMSStatusAsyncWithHttpInfo (string messageId);
+        /// <returns>Task of ApiResponse (List&lt;OutboundPollResponse&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<OutboundPollResponse>>> GetSMSStatusAsyncWithHttpInfo (string messageId);
         /// <summary>
         /// Retrieve SMS Responses
         /// </summary>
@@ -178,8 +178,8 @@ namespace com.telstra.messaging.Api
         /// Retrieve Messages
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of List&lt;InboundPollResponse&gt;</returns>
-        System.Threading.Tasks.Task<List<InboundPollResponse>> RetrieveSMSResponsesAsync ();
+        /// <returns>Task of InboundPollResponse</returns>
+        System.Threading.Tasks.Task<InboundPollResponse> RetrieveSMSResponsesAsync ();
 
         /// <summary>
         /// Retrieve SMS Responses
@@ -188,8 +188,8 @@ namespace com.telstra.messaging.Api
         /// Retrieve Messages
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (List&lt;InboundPollResponse&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InboundPollResponse>>> RetrieveSMSResponsesAsyncWithHttpInfo ();
+        /// <returns>Task of ApiResponse (InboundPollResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InboundPollResponse>> RetrieveSMSResponsesAsyncWithHttpInfo ();
         /// <summary>
         /// Send MMS
         /// </summary>
@@ -198,8 +198,8 @@ namespace com.telstra.messaging.Api
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">A JSON or XML payload containing the recipient&#39;s phone number and MMS message.The recipient number should be in the format &#39;04xxxxxxxx&#39; where x is a digit</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> SendMMSAsync (SendMmsRequest body);
+        /// <returns>Task of MessageSentResponse</returns>
+        System.Threading.Tasks.Task<MessageSentResponse> SendMMSAsync (SendMmsRequest body);
 
         /// <summary>
         /// Send MMS
@@ -209,8 +209,8 @@ namespace com.telstra.messaging.Api
         /// </remarks>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">A JSON or XML payload containing the recipient&#39;s phone number and MMS message.The recipient number should be in the format &#39;04xxxxxxxx&#39; where x is a digit</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SendMMSAsyncWithHttpInfo (SendMmsRequest body);
+        /// <returns>Task of ApiResponse (MessageSentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MessageSentResponse>> SendMMSAsyncWithHttpInfo (SendMmsRequest body);
         /// <summary>
         /// Send SMS
         /// </summary>
@@ -337,10 +337,10 @@ namespace com.telstra.messaging.Api
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageid">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/mms</param>
-        /// <returns>OutboundPollResponse</returns>
-        public OutboundPollResponse GetMMSStatus (string messageid)
+        /// <returns>List&lt;OutboundPollResponse&gt;</returns>
+        public List<OutboundPollResponse> GetMMSStatus (string messageid)
         {
-             ApiResponse<OutboundPollResponse> localVarResponse = GetMMSStatusWithHttpInfo(messageid);
+             ApiResponse<List<OutboundPollResponse>> localVarResponse = GetMMSStatusWithHttpInfo(messageid);
              return localVarResponse.Data;
         }
 
@@ -349,8 +349,8 @@ namespace com.telstra.messaging.Api
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageid">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/mms</param>
-        /// <returns>ApiResponse of OutboundPollResponse</returns>
-        public ApiResponse< OutboundPollResponse > GetMMSStatusWithHttpInfo (string messageid)
+        /// <returns>ApiResponse of List&lt;OutboundPollResponse&gt;</returns>
+        public ApiResponse< List<OutboundPollResponse> > GetMMSStatusWithHttpInfo (string messageid)
         {
             // verify the required parameter 'messageid' is set
             if (messageid == null)
@@ -400,9 +400,9 @@ namespace com.telstra.messaging.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<OutboundPollResponse>(localVarStatusCode,
+            return new ApiResponse<List<OutboundPollResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (OutboundPollResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OutboundPollResponse)));
+                (List<OutboundPollResponse>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<OutboundPollResponse>)));
         }
 
         /// <summary>
@@ -410,10 +410,10 @@ namespace com.telstra.messaging.Api
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageid">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/mms</param>
-        /// <returns>Task of OutboundPollResponse</returns>
-        public async System.Threading.Tasks.Task<OutboundPollResponse> GetMMSStatusAsync (string messageid)
+        /// <returns>Task of List&lt;OutboundPollResponse&gt;</returns>
+        public async System.Threading.Tasks.Task<List<OutboundPollResponse>> GetMMSStatusAsync (string messageid)
         {
-             ApiResponse<OutboundPollResponse> localVarResponse = await GetMMSStatusAsyncWithHttpInfo(messageid);
+             ApiResponse<List<OutboundPollResponse>> localVarResponse = await GetMMSStatusAsyncWithHttpInfo(messageid);
              return localVarResponse.Data;
 
         }
@@ -423,8 +423,8 @@ namespace com.telstra.messaging.Api
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageid">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/mms</param>
-        /// <returns>Task of ApiResponse (OutboundPollResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OutboundPollResponse>> GetMMSStatusAsyncWithHttpInfo (string messageid)
+        /// <returns>Task of ApiResponse (List&lt;OutboundPollResponse&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<List<OutboundPollResponse>>> GetMMSStatusAsyncWithHttpInfo (string messageid)
         {
             // verify the required parameter 'messageid' is set
             if (messageid == null)
@@ -474,9 +474,9 @@ namespace com.telstra.messaging.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<OutboundPollResponse>(localVarStatusCode,
+            return new ApiResponse<List<OutboundPollResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (OutboundPollResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OutboundPollResponse)));
+                (List<OutboundPollResponse>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<OutboundPollResponse>)));
         }
 
         /// <summary>
@@ -484,10 +484,10 @@ namespace com.telstra.messaging.Api
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/sms</param>
-        /// <returns>OutboundPollResponse</returns>
-        public OutboundPollResponse GetSMSStatus (string messageId)
+        /// <returns>List&lt;OutboundPollResponse&gt;</returns>
+        public List<OutboundPollResponse> GetSMSStatus (string messageId)
         {
-             ApiResponse<OutboundPollResponse> localVarResponse = GetSMSStatusWithHttpInfo(messageId);
+             ApiResponse<List<OutboundPollResponse>> localVarResponse = GetSMSStatusWithHttpInfo(messageId);
              return localVarResponse.Data;
         }
 
@@ -496,8 +496,8 @@ namespace com.telstra.messaging.Api
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/sms</param>
-        /// <returns>ApiResponse of OutboundPollResponse</returns>
-        public ApiResponse< OutboundPollResponse > GetSMSStatusWithHttpInfo (string messageId)
+        /// <returns>ApiResponse of List&lt;OutboundPollResponse&gt;</returns>
+        public ApiResponse< List<OutboundPollResponse> > GetSMSStatusWithHttpInfo (string messageId)
         {
             // verify the required parameter 'messageId' is set
             if (messageId == null)
@@ -547,9 +547,9 @@ namespace com.telstra.messaging.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<OutboundPollResponse>(localVarStatusCode,
+            return new ApiResponse<List<OutboundPollResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (OutboundPollResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OutboundPollResponse)));
+                (List<OutboundPollResponse>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<OutboundPollResponse>)));
         }
 
         /// <summary>
@@ -557,10 +557,10 @@ namespace com.telstra.messaging.Api
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/sms</param>
-        /// <returns>Task of OutboundPollResponse</returns>
-        public async System.Threading.Tasks.Task<OutboundPollResponse> GetSMSStatusAsync (string messageId)
+        /// <returns>Task of List&lt;OutboundPollResponse&gt;</returns>
+        public async System.Threading.Tasks.Task<List<OutboundPollResponse>> GetSMSStatusAsync (string messageId)
         {
-             ApiResponse<OutboundPollResponse> localVarResponse = await GetSMSStatusAsyncWithHttpInfo(messageId);
+             ApiResponse<List<OutboundPollResponse>> localVarResponse = await GetSMSStatusAsyncWithHttpInfo(messageId);
              return localVarResponse.Data;
 
         }
@@ -570,8 +570,8 @@ namespace com.telstra.messaging.Api
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="messageId">Unique identifier of a message - it is the value returned from a previous POST call to https://api.telstra.com/v2/messages/sms</param>
-        /// <returns>Task of ApiResponse (OutboundPollResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<OutboundPollResponse>> GetSMSStatusAsyncWithHttpInfo (string messageId)
+        /// <returns>Task of ApiResponse (List&lt;OutboundPollResponse&gt;)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<List<OutboundPollResponse>>> GetSMSStatusAsyncWithHttpInfo (string messageId)
         {
             // verify the required parameter 'messageId' is set
             if (messageId == null)
@@ -621,19 +621,19 @@ namespace com.telstra.messaging.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<OutboundPollResponse>(localVarStatusCode,
+            return new ApiResponse<List<OutboundPollResponse>>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (OutboundPollResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(OutboundPollResponse)));
+                (List<OutboundPollResponse>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<OutboundPollResponse>)));
         }
 
         /// <summary>
         /// Retrieve SMS Responses Retrieve Messages
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>List&lt;InboundPollResponse&gt;</returns>
-        public List<InboundPollResponse> RetrieveSMSResponses ()
+        /// <returns>InboundPollResponse</returns>
+        public InboundPollResponse RetrieveSMSResponses ()
         {
-             ApiResponse<List<InboundPollResponse>> localVarResponse = RetrieveSMSResponsesWithHttpInfo();
+             ApiResponse<InboundPollResponse> localVarResponse = RetrieveSMSResponsesWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -641,8 +641,8 @@ namespace com.telstra.messaging.Api
         /// Retrieve SMS Responses Retrieve Messages
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of List&lt;InboundPollResponse&gt;</returns>
-        public ApiResponse< List<InboundPollResponse> > RetrieveSMSResponsesWithHttpInfo ()
+        /// <returns>ApiResponse of InboundPollResponse</returns>
+        public ApiResponse< InboundPollResponse > RetrieveSMSResponsesWithHttpInfo ()
         {
 
             var localVarPath = "/messages/sms";
@@ -688,19 +688,19 @@ namespace com.telstra.messaging.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<List<InboundPollResponse>>(localVarStatusCode,
+            return new ApiResponse<InboundPollResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (List<InboundPollResponse>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InboundPollResponse>)));
+                (InboundPollResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InboundPollResponse)));
         }
 
         /// <summary>
         /// Retrieve SMS Responses Retrieve Messages
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of List&lt;InboundPollResponse&gt;</returns>
-        public async System.Threading.Tasks.Task<List<InboundPollResponse>> RetrieveSMSResponsesAsync ()
+        /// <returns>Task of InboundPollResponse</returns>
+        public async System.Threading.Tasks.Task<InboundPollResponse> RetrieveSMSResponsesAsync ()
         {
-             ApiResponse<List<InboundPollResponse>> localVarResponse = await RetrieveSMSResponsesAsyncWithHttpInfo();
+             ApiResponse<InboundPollResponse> localVarResponse = await RetrieveSMSResponsesAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -709,8 +709,8 @@ namespace com.telstra.messaging.Api
         /// Retrieve SMS Responses Retrieve Messages
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (List&lt;InboundPollResponse&gt;)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<List<InboundPollResponse>>> RetrieveSMSResponsesAsyncWithHttpInfo ()
+        /// <returns>Task of ApiResponse (InboundPollResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InboundPollResponse>> RetrieveSMSResponsesAsyncWithHttpInfo ()
         {
 
             var localVarPath = "/messages/sms";
@@ -756,9 +756,9 @@ namespace com.telstra.messaging.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<List<InboundPollResponse>>(localVarStatusCode,
+            return new ApiResponse<InboundPollResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (List<InboundPollResponse>) Configuration.ApiClient.Deserialize(localVarResponse, typeof(List<InboundPollResponse>)));
+                (InboundPollResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InboundPollResponse)));
         }
 
         /// <summary>
@@ -766,10 +766,10 @@ namespace com.telstra.messaging.Api
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">A JSON or XML payload containing the recipient&#39;s phone number and MMS message.The recipient number should be in the format &#39;04xxxxxxxx&#39; where x is a digit</param>
-        /// <returns>Object</returns>
-        public Object SendMMS (SendMmsRequest body)
+        /// <returns>MessageSentResponse</returns>
+        public MessageSentResponse SendMMS (SendMmsRequest body)
         {
-             ApiResponse<Object> localVarResponse = SendMMSWithHttpInfo(body);
+             ApiResponse<MessageSentResponse> localVarResponse = SendMMSWithHttpInfo(body);
              return localVarResponse.Data;
         }
 
@@ -778,8 +778,8 @@ namespace com.telstra.messaging.Api
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">A JSON or XML payload containing the recipient&#39;s phone number and MMS message.The recipient number should be in the format &#39;04xxxxxxxx&#39; where x is a digit</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ApiResponse< Object > SendMMSWithHttpInfo (SendMmsRequest body)
+        /// <returns>ApiResponse of MessageSentResponse</returns>
+        public ApiResponse< MessageSentResponse > SendMMSWithHttpInfo (SendMmsRequest body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -836,9 +836,9 @@ namespace com.telstra.messaging.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<MessageSentResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (MessageSentResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MessageSentResponse)));
         }
 
         /// <summary>
@@ -846,10 +846,10 @@ namespace com.telstra.messaging.Api
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">A JSON or XML payload containing the recipient&#39;s phone number and MMS message.The recipient number should be in the format &#39;04xxxxxxxx&#39; where x is a digit</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> SendMMSAsync (SendMmsRequest body)
+        /// <returns>Task of MessageSentResponse</returns>
+        public async System.Threading.Tasks.Task<MessageSentResponse> SendMMSAsync (SendMmsRequest body)
         {
-             ApiResponse<Object> localVarResponse = await SendMMSAsyncWithHttpInfo(body);
+             ApiResponse<MessageSentResponse> localVarResponse = await SendMMSAsyncWithHttpInfo(body);
              return localVarResponse.Data;
 
         }
@@ -859,8 +859,8 @@ namespace com.telstra.messaging.Api
         /// </summary>
         /// <exception cref="com.telstra.messaging.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">A JSON or XML payload containing the recipient&#39;s phone number and MMS message.The recipient number should be in the format &#39;04xxxxxxxx&#39; where x is a digit</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> SendMMSAsyncWithHttpInfo (SendMmsRequest body)
+        /// <returns>Task of ApiResponse (MessageSentResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<MessageSentResponse>> SendMMSAsyncWithHttpInfo (SendMmsRequest body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -917,9 +917,9 @@ namespace com.telstra.messaging.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Object>(localVarStatusCode,
+            return new ApiResponse<MessageSentResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Object) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Object)));
+                (MessageSentResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(MessageSentResponse)));
         }
 
         /// <summary>

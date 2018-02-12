@@ -1,10 +1,10 @@
-# com.telstra.messaging.Model.ProvisionNumberRequest
+# com.telstra.messaging.Model.ErrorErrorError62
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ActiveDays** | **int?** | Number of active days | [optional] 
-**NotifyURL** | **string** | Notify url | [optional] 
+**Status** | **string** | A short error code | 
+**Message** | **string** | Message describing the error. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

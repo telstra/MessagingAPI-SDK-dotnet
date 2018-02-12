@@ -25,20 +25,38 @@ using SwaggerDateConverter = com.telstra.messaging.Client.SwaggerDateConverter;
 namespace com.telstra.messaging.Model
 {
     /// <summary>
-    /// ProvisionNumberResponse
+    /// GetSubscriptionResponse
     /// </summary>
     [DataContract]
-    public partial class ProvisionNumberResponse :  IEquatable<ProvisionNumberResponse>, IValidatableObject
+    public partial class GetSubscriptionResponse :  IEquatable<GetSubscriptionResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProvisionNumberResponse" /> class.
+        /// Initializes a new instance of the <see cref="GetSubscriptionResponse" /> class.
         /// </summary>
+        /// <param name="ActiveDays">Number of active days.</param>
+        /// <param name="NotifyURL">Notify url configured.</param>
         /// <param name="DestinationAddress">The mobile phone number that was allocated.</param>
-        public ProvisionNumberResponse(string DestinationAddress = default(string))
+        public GetSubscriptionResponse(string ActiveDays = default(string), string NotifyURL = default(string), string DestinationAddress = default(string))
         {
+            this.ActiveDays = ActiveDays;
+            this.NotifyURL = NotifyURL;
             this.DestinationAddress = DestinationAddress;
         }
         
+        /// <summary>
+        /// Number of active days
+        /// </summary>
+        /// <value>Number of active days</value>
+        [DataMember(Name="activeDays", EmitDefaultValue=false)]
+        public string ActiveDays { get; set; }
+
+        /// <summary>
+        /// Notify url configured
+        /// </summary>
+        /// <value>Notify url configured</value>
+        [DataMember(Name="notifyURL", EmitDefaultValue=false)]
+        public string NotifyURL { get; set; }
+
         /// <summary>
         /// The mobile phone number that was allocated
         /// </summary>
@@ -53,7 +71,9 @@ namespace com.telstra.messaging.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ProvisionNumberResponse {\n");
+            sb.Append("class GetSubscriptionResponse {\n");
+            sb.Append("  ActiveDays: ").Append(ActiveDays).Append("\n");
+            sb.Append("  NotifyURL: ").Append(NotifyURL).Append("\n");
             sb.Append("  DestinationAddress: ").Append(DestinationAddress).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -75,20 +95,30 @@ namespace com.telstra.messaging.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ProvisionNumberResponse);
+            return this.Equals(input as GetSubscriptionResponse);
         }
 
         /// <summary>
-        /// Returns true if ProvisionNumberResponse instances are equal
+        /// Returns true if GetSubscriptionResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ProvisionNumberResponse to be compared</param>
+        /// <param name="input">Instance of GetSubscriptionResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ProvisionNumberResponse input)
+        public bool Equals(GetSubscriptionResponse input)
         {
             if (input == null)
                 return false;
 
             return 
+                (
+                    this.ActiveDays == input.ActiveDays ||
+                    (this.ActiveDays != null &&
+                    this.ActiveDays.Equals(input.ActiveDays))
+                ) && 
+                (
+                    this.NotifyURL == input.NotifyURL ||
+                    (this.NotifyURL != null &&
+                    this.NotifyURL.Equals(input.NotifyURL))
+                ) && 
                 (
                     this.DestinationAddress == input.DestinationAddress ||
                     (this.DestinationAddress != null &&
@@ -105,6 +135,10 @@ namespace com.telstra.messaging.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ActiveDays != null)
+                    hashCode = hashCode * 59 + this.ActiveDays.GetHashCode();
+                if (this.NotifyURL != null)
+                    hashCode = hashCode * 59 + this.NotifyURL.GetHashCode();
                 if (this.DestinationAddress != null)
                     hashCode = hashCode * 59 + this.DestinationAddress.GetHashCode();
                 return hashCode;

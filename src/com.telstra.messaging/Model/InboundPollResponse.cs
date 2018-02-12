@@ -33,63 +33,63 @@ namespace com.telstra.messaging.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InboundPollResponse" /> class.
         /// </summary>
-        /// <param name="To">The phone number (recipient) that the message was sent to(in E.164 format)..</param>
-        /// <param name="From">The phone number (sender) that the message was sent from (in E.164 format)..</param>
-        /// <param name="Body">Text body of the message that was sent.</param>
-        /// <param name="ReceivedTimestamp">The date and time when the message was recieved by recipient..</param>
-        /// <param name="MoreMessages">Indicates if there are more messages that can be polled from the server. 0&#x3D;No more messages available. Anything else indicates there are more messages on the server..</param>
-        /// <param name="MessageId">Optional message ID of the SMS you sent. Use this ID to view the message status or get responses..</param>
-        public InboundPollResponse(string To = default(string), string From = default(string), string Body = default(string), string ReceivedTimestamp = default(string), int? MoreMessages = default(int?), string MessageId = default(string))
+        /// <param name="Status">message status.</param>
+        /// <param name="DestinationAddress">The phone number (recipient) that the message was sent to(in E.164 format)..</param>
+        /// <param name="SenderAddress">The phone number (sender) that the message was sent from (in E.164 format)..</param>
+        /// <param name="Message">Text of the message that was sent.</param>
+        /// <param name="MessageId">Message Id.</param>
+        /// <param name="SentTimestamp">The date and time when the message was sent by recipient..</param>
+        public InboundPollResponse(string Status = default(string), string DestinationAddress = default(string), string SenderAddress = default(string), string Message = default(string), string MessageId = default(string), string SentTimestamp = default(string))
         {
-            this.To = To;
-            this.From = From;
-            this.Body = Body;
-            this.ReceivedTimestamp = ReceivedTimestamp;
-            this.MoreMessages = MoreMessages;
+            this.Status = Status;
+            this.DestinationAddress = DestinationAddress;
+            this.SenderAddress = SenderAddress;
+            this.Message = Message;
             this.MessageId = MessageId;
+            this.SentTimestamp = SentTimestamp;
         }
         
+        /// <summary>
+        /// message status
+        /// </summary>
+        /// <value>message status</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public string Status { get; set; }
+
         /// <summary>
         /// The phone number (recipient) that the message was sent to(in E.164 format).
         /// </summary>
         /// <value>The phone number (recipient) that the message was sent to(in E.164 format).</value>
-        [DataMember(Name="to", EmitDefaultValue=false)]
-        public string To { get; set; }
+        [DataMember(Name="destinationAddress", EmitDefaultValue=false)]
+        public string DestinationAddress { get; set; }
 
         /// <summary>
         /// The phone number (sender) that the message was sent from (in E.164 format).
         /// </summary>
         /// <value>The phone number (sender) that the message was sent from (in E.164 format).</value>
-        [DataMember(Name="from", EmitDefaultValue=false)]
-        public string From { get; set; }
+        [DataMember(Name="senderAddress", EmitDefaultValue=false)]
+        public string SenderAddress { get; set; }
 
         /// <summary>
-        /// Text body of the message that was sent
+        /// Text of the message that was sent
         /// </summary>
-        /// <value>Text body of the message that was sent</value>
-        [DataMember(Name="body", EmitDefaultValue=false)]
-        public string Body { get; set; }
+        /// <value>Text of the message that was sent</value>
+        [DataMember(Name="message", EmitDefaultValue=false)]
+        public string Message { get; set; }
 
         /// <summary>
-        /// The date and time when the message was recieved by recipient.
+        /// Message Id
         /// </summary>
-        /// <value>The date and time when the message was recieved by recipient.</value>
-        [DataMember(Name="receivedTimestamp", EmitDefaultValue=false)]
-        public string ReceivedTimestamp { get; set; }
-
-        /// <summary>
-        /// Indicates if there are more messages that can be polled from the server. 0&#x3D;No more messages available. Anything else indicates there are more messages on the server.
-        /// </summary>
-        /// <value>Indicates if there are more messages that can be polled from the server. 0&#x3D;No more messages available. Anything else indicates there are more messages on the server.</value>
-        [DataMember(Name="moreMessages", EmitDefaultValue=false)]
-        public int? MoreMessages { get; set; }
-
-        /// <summary>
-        /// Optional message ID of the SMS you sent. Use this ID to view the message status or get responses.
-        /// </summary>
-        /// <value>Optional message ID of the SMS you sent. Use this ID to view the message status or get responses.</value>
+        /// <value>Message Id</value>
         [DataMember(Name="messageId", EmitDefaultValue=false)]
         public string MessageId { get; set; }
+
+        /// <summary>
+        /// The date and time when the message was sent by recipient.
+        /// </summary>
+        /// <value>The date and time when the message was sent by recipient.</value>
+        [DataMember(Name="sentTimestamp", EmitDefaultValue=false)]
+        public string SentTimestamp { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -99,12 +99,12 @@ namespace com.telstra.messaging.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InboundPollResponse {\n");
-            sb.Append("  To: ").Append(To).Append("\n");
-            sb.Append("  From: ").Append(From).Append("\n");
-            sb.Append("  Body: ").Append(Body).Append("\n");
-            sb.Append("  ReceivedTimestamp: ").Append(ReceivedTimestamp).Append("\n");
-            sb.Append("  MoreMessages: ").Append(MoreMessages).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  DestinationAddress: ").Append(DestinationAddress).Append("\n");
+            sb.Append("  SenderAddress: ").Append(SenderAddress).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  MessageId: ").Append(MessageId).Append("\n");
+            sb.Append("  SentTimestamp: ").Append(SentTimestamp).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,34 +140,34 @@ namespace com.telstra.messaging.Model
 
             return 
                 (
-                    this.To == input.To ||
-                    (this.To != null &&
-                    this.To.Equals(input.To))
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this.From == input.From ||
-                    (this.From != null &&
-                    this.From.Equals(input.From))
+                    this.DestinationAddress == input.DestinationAddress ||
+                    (this.DestinationAddress != null &&
+                    this.DestinationAddress.Equals(input.DestinationAddress))
                 ) && 
                 (
-                    this.Body == input.Body ||
-                    (this.Body != null &&
-                    this.Body.Equals(input.Body))
+                    this.SenderAddress == input.SenderAddress ||
+                    (this.SenderAddress != null &&
+                    this.SenderAddress.Equals(input.SenderAddress))
                 ) && 
                 (
-                    this.ReceivedTimestamp == input.ReceivedTimestamp ||
-                    (this.ReceivedTimestamp != null &&
-                    this.ReceivedTimestamp.Equals(input.ReceivedTimestamp))
-                ) && 
-                (
-                    this.MoreMessages == input.MoreMessages ||
-                    (this.MoreMessages != null &&
-                    this.MoreMessages.Equals(input.MoreMessages))
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
                 ) && 
                 (
                     this.MessageId == input.MessageId ||
                     (this.MessageId != null &&
                     this.MessageId.Equals(input.MessageId))
+                ) && 
+                (
+                    this.SentTimestamp == input.SentTimestamp ||
+                    (this.SentTimestamp != null &&
+                    this.SentTimestamp.Equals(input.SentTimestamp))
                 );
         }
 
@@ -180,18 +180,18 @@ namespace com.telstra.messaging.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.To != null)
-                    hashCode = hashCode * 59 + this.To.GetHashCode();
-                if (this.From != null)
-                    hashCode = hashCode * 59 + this.From.GetHashCode();
-                if (this.Body != null)
-                    hashCode = hashCode * 59 + this.Body.GetHashCode();
-                if (this.ReceivedTimestamp != null)
-                    hashCode = hashCode * 59 + this.ReceivedTimestamp.GetHashCode();
-                if (this.MoreMessages != null)
-                    hashCode = hashCode * 59 + this.MoreMessages.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.DestinationAddress != null)
+                    hashCode = hashCode * 59 + this.DestinationAddress.GetHashCode();
+                if (this.SenderAddress != null)
+                    hashCode = hashCode * 59 + this.SenderAddress.GetHashCode();
+                if (this.Message != null)
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
                 if (this.MessageId != null)
                     hashCode = hashCode * 59 + this.MessageId.GetHashCode();
+                if (this.SentTimestamp != null)
+                    hashCode = hashCode * 59 + this.SentTimestamp.GetHashCode();
                 return hashCode;
             }
         }
