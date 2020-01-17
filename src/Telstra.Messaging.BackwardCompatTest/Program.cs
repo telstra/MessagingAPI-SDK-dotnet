@@ -43,6 +43,7 @@ namespace Telstra.Messaging.BackwardCompatTest
                 Console.WriteLine("Exception when calling AuthenticationApi.AuthToken: " + e.Message);
                 Console.WriteLine("Status Code: " + e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
+                throw;
             }
         }
     }
