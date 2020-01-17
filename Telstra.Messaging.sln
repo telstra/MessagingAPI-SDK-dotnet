@@ -1,0 +1,36 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telstra.Messaging", "src\Telstra.Messaging\Telstra.Messaging.csproj", "{B98ACF0D-EE51-49A8-BA8E-71750CAAB9E3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telstra.Messaging.Test", "src\Telstra.Messaging.Test\Telstra.Messaging.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telstra.Messaging.BackwardCompatTest", "src\Telstra.Messaging.BackwardCompatTest\Telstra.Messaging.BackwardCompatTest.csproj", "{EFCB5739-9CBE-43FC-80FD-78E552CD415E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B98ACF0D-EE51-49A8-BA8E-71750CAAB9E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B98ACF0D-EE51-49A8-BA8E-71750CAAB9E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B98ACF0D-EE51-49A8-BA8E-71750CAAB9E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B98ACF0D-EE51-49A8-BA8E-71750CAAB9E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFCB5739-9CBE-43FC-80FD-78E552CD415E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFCB5739-9CBE-43FC-80FD-78E552CD415E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFCB5739-9CBE-43FC-80FD-78E552CD415E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFCB5739-9CBE-43FC-80FD-78E552CD415E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B2B0E7E-CEBF-46C0-BB6C-20FC6C8F8EEF}
+	EndGlobalSection
+EndGlobal

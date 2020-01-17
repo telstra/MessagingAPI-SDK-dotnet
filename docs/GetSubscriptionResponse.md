@@ -1,4 +1,4 @@
-# com.telstra.messaging.Model.GetSubscriptionResponse
+# Telstra.Messaging.Model.GetSubscriptionResponse
 ## Properties
 
 Name | Type | Description | Notes
