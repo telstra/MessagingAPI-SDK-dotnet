@@ -16,4 +16,4 @@ jobs:
         CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         PHONE_NO: ${{ secrets.PHONE_NO }}
         FROM_ALIAS: ${{ secrets.FROM_ALIAS }}
-      run: docker-compose up --build
+      run: docker-compose up --build --exit-code-from telstradev
