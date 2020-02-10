@@ -1,7 +1,7 @@
 /* 
  * Telstra Messaging API
  *
- * The API specification for Telstra Messaging API
+ * The Telstra Messaging API specification
  *
  * The version of the OpenAPI document: 2.2.9
  * 
@@ -809,7 +809,7 @@ namespace Telstra.Messaging.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< HealthCheckResponse >("/messages/mms/heathcheck", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< HealthCheckResponse >("/messages/mms/healthcheck", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -860,7 +860,7 @@ namespace Telstra.Messaging.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<HealthCheckResponse>("/messages/mms/heathcheck", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<HealthCheckResponse>("/messages/mms/healthcheck", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1130,7 +1130,7 @@ namespace Telstra.Messaging.Api
 
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< HealthCheckResponse >("/messages/sms/heathcheck", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< HealthCheckResponse >("/messages/sms/healthcheck", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1181,7 +1181,7 @@ namespace Telstra.Messaging.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<HealthCheckResponse>("/messages/sms/heathcheck", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<HealthCheckResponse>("/messages/sms/healthcheck", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1235,6 +1235,12 @@ namespace Telstra.Messaging.Api
 
             localVarRequestOptions.Data = payload;
 
+            // authentication (auth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
             var localVarResponse = this.Client.Post< MessageSentResponseSms >("/messages/sms/multi", localVarRequestOptions, this.Configuration);
@@ -1293,6 +1299,12 @@ namespace Telstra.Messaging.Api
             
             localVarRequestOptions.Data = payload;
 
+            // authentication (auth) required
+            // oauth required
+            if (!String.IsNullOrEmpty(this.Configuration.AccessToken))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
 
             // make the HTTP request
 

@@ -6,10 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetMMSStatus**](MessagingApi.md#getmmsstatus) | **GET** /messages/mms/{messageid}/status | Get MMS Status
 [**GetSMSStatus**](MessagingApi.md#getsmsstatus) | **GET** /messages/sms/{messageId}/status | Get SMS Status
-[**MMSHealthCheck**](MessagingApi.md#mmshealthcheck) | **GET** /messages/mms/heathcheck | MMS Health Check
+[**MMSHealthCheck**](MessagingApi.md#mmshealthcheck) | **GET** /messages/mms/healthcheck | MMS Health Check
 [**RetrieveMMSReplies**](MessagingApi.md#retrievemmsreplies) | **GET** /messages/mms | Retrieve MMS Replies
 [**RetrieveSMSReplies**](MessagingApi.md#retrievesmsreplies) | **GET** /messages/sms | Retrieve SMS Replies
-[**SMSHealthCheck**](MessagingApi.md#smshealthcheck) | **GET** /messages/sms/heathcheck | SMS Health Check
+[**SMSHealthCheck**](MessagingApi.md#smshealthcheck) | **GET** /messages/sms/healthcheck | SMS Health Check
 [**SMSMulti**](MessagingApi.md#smsmulti) | **POST** /messages/sms/multi | Send Multiple SMS
 [**SendMMS**](MessagingApi.md#sendmms) | **POST** /messages/mms | Send MMS
 [**SendSMS**](MessagingApi.md#sendsms) | **POST** /messages/sms | Send SMS
@@ -500,6 +500,9 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "https://tapi.telstra.com/v2";
+            // Configure OAuth2 access token for authorization: auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
             var apiInstance = new MessagingApi(Configuration.Default);
             var payload = new SendSmsMultiRequest(); // SendSmsMultiRequest | A JSON payload containing the recipient's phone number and text message. This number can be in international format if preceeded by a '+' or in national format ('04xxxxxxxx') where x is a digit. 
 
@@ -532,7 +535,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[auth](../README.md#auth)
 
 ### HTTP request headers
 
@@ -543,7 +546,7 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
-| **400** | Invalid or missing request parameters * DR-NOTIFY-URL-MISSING : when receiptOff is missing or receiptOff&#x3D;false but notifyURL is missing  |  -  |
+| **400** | Invalid or missing request parameters * DR-NOTIFY-URL-MISSING : when &#x60;\&quot;receiptOff\&quot;&#x60; is missing or &#x60;\&quot;receiptOff\&quot;:\&quot;false\&quot;&#x60; but notifyURL is missing  |  -  |
 | **500** | Technical error : Unable to route the message to a Target Endpoint : An error has occurred while processing your request, please refer to API Docs for summary on the issue  |  -  |
 | **501** | The HTTP method being used has not yet been implemented for the requested resource  |  -  |
 | **503** | The service requested is currently unavailable |  -  |

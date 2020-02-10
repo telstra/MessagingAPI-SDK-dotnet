@@ -1,7 +1,7 @@
 /* 
  * Telstra Messaging API
  *
- * The API specification for Telstra Messaging API
+ * The Telstra Messaging API specification
  *
  * The version of the OpenAPI document: 2.2.9
  * 
@@ -35,11 +35,11 @@ namespace Telstra.Messaging.Model
         /// Initializes a new instance of the <see cref="SendSmsMultiRequest" /> class.
         /// </summary>
         /// <param name="smsMulti">Multiple SMS. Up to 10 messages can be sent in one API call..</param>
-        /// <param name="notiyURL">Contains a URL that will be called once your message has been processed. The status may be delivered, expired, deleted, etc. Please refer to the Delivery Status section for more information.  If you are using a domain URL you must include the forward slash at the end of the URL (e.g. http://www.example.com/). .</param>
-        public SendSmsMultiRequest(List<MessageMulti> smsMulti = default(List<MessageMulti>), string notiyURL = default(string))
+        /// <param name="notifyURL">Contains a URL that will be called once your message has been processed. The status may be delivered, expired, deleted, etc. Please refer to the Delivery Status section for more information.  If you are using a domain URL you must include the forward slash at the end of the URL (e.g. http://www.example.com/).  This is required when &#x60;\&quot;receiptOff\&quot;&#x60; is missing or &#x60;\&quot;receiptOff\&quot;:\&quot;false\&quot;&#x60;. .</param>
+        public SendSmsMultiRequest(List<MessageMulti> smsMulti = default(List<MessageMulti>), string notifyURL = default(string))
         {
             this.SmsMulti = smsMulti;
-            this.NotiyURL = notiyURL;
+            this.NotifyURL = notifyURL;
         }
         
         /// <summary>
@@ -50,11 +50,11 @@ namespace Telstra.Messaging.Model
         public List<MessageMulti> SmsMulti { get; set; }
 
         /// <summary>
-        /// Contains a URL that will be called once your message has been processed. The status may be delivered, expired, deleted, etc. Please refer to the Delivery Status section for more information.  If you are using a domain URL you must include the forward slash at the end of the URL (e.g. http://www.example.com/). 
+        /// Contains a URL that will be called once your message has been processed. The status may be delivered, expired, deleted, etc. Please refer to the Delivery Status section for more information.  If you are using a domain URL you must include the forward slash at the end of the URL (e.g. http://www.example.com/).  This is required when &#x60;\&quot;receiptOff\&quot;&#x60; is missing or &#x60;\&quot;receiptOff\&quot;:\&quot;false\&quot;&#x60;. 
         /// </summary>
-        /// <value>Contains a URL that will be called once your message has been processed. The status may be delivered, expired, deleted, etc. Please refer to the Delivery Status section for more information.  If you are using a domain URL you must include the forward slash at the end of the URL (e.g. http://www.example.com/). </value>
-        [DataMember(Name="notiyURL", EmitDefaultValue=false)]
-        public string NotiyURL { get; set; }
+        /// <value>Contains a URL that will be called once your message has been processed. The status may be delivered, expired, deleted, etc. Please refer to the Delivery Status section for more information.  If you are using a domain URL you must include the forward slash at the end of the URL (e.g. http://www.example.com/).  This is required when &#x60;\&quot;receiptOff\&quot;&#x60; is missing or &#x60;\&quot;receiptOff\&quot;:\&quot;false\&quot;&#x60;. </value>
+        [DataMember(Name="notifyURL", EmitDefaultValue=false)]
+        public string NotifyURL { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,7 +65,7 @@ namespace Telstra.Messaging.Model
             var sb = new StringBuilder();
             sb.Append("class SendSmsMultiRequest {\n");
             sb.Append("  SmsMulti: ").Append(SmsMulti).Append("\n");
-            sb.Append("  NotiyURL: ").Append(NotiyURL).Append("\n");
+            sb.Append("  NotifyURL: ").Append(NotifyURL).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,9 +107,9 @@ namespace Telstra.Messaging.Model
                     this.SmsMulti.SequenceEqual(input.SmsMulti)
                 ) && 
                 (
-                    this.NotiyURL == input.NotiyURL ||
-                    (this.NotiyURL != null &&
-                    this.NotiyURL.Equals(input.NotiyURL))
+                    this.NotifyURL == input.NotifyURL ||
+                    (this.NotifyURL != null &&
+                    this.NotifyURL.Equals(input.NotifyURL))
                 );
         }
 
@@ -124,8 +124,8 @@ namespace Telstra.Messaging.Model
                 int hashCode = 41;
                 if (this.SmsMulti != null)
                     hashCode = hashCode * 59 + this.SmsMulti.GetHashCode();
-                if (this.NotiyURL != null)
-                    hashCode = hashCode * 59 + this.NotiyURL.GetHashCode();
+                if (this.NotifyURL != null)
+                    hashCode = hashCode * 59 + this.NotifyURL.GetHashCode();
                 return hashCode;
             }
         }

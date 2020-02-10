@@ -1,7 +1,7 @@
 /* 
  * Telstra Messaging API
  *
- * The API specification for Telstra Messaging API
+ * The Telstra Messaging API specification
  *
  * The version of the OpenAPI document: 2.2.9
  * 
@@ -66,12 +66,12 @@ namespace Telstra.Messaging.Test
             // TODO unit test for the property 'SmsMulti'
         }
         /// <summary>
-        /// Test the property 'NotiyURL'
+        /// Test the property 'NotifyURL'
         /// </summary>
         [Fact]
-        public void NotiyURLTest()
+        public void NotifyURLTest()
         {
-            // TODO unit test for the property 'NotiyURL'
+            // TODO unit test for the property 'NotifyURL'
         }
 
     }

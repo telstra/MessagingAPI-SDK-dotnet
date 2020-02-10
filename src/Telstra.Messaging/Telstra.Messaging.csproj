@@ -2,7 +2,7 @@
 <!--
 Telstra Messaging API
 
-The API specification for Telstra Messaging API
+The Telstra Messaging API specification
 
 The version of the OpenAPI document: 2.2.9
 
@@ -13,7 +13,7 @@ The version of the OpenAPI document: 2.2.9
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B98ACF0D-EE51-49A8-BA8E-71750CAAB9E3}</ProjectGuid>
+    <ProjectGuid>{C5E9110C-5420-4A07-A05D-00D6ED6D205E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Telstra.Messaging</RootNamespace>
