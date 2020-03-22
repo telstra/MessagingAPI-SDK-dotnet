@@ -1,4 +1,4 @@
-# com.telstra.messaging.Model.Status
+# Telstra.Messaging.Model.Status
 ## Properties
 
 Name | Type | Description | Notes

@@ -1,0 +1,23 @@
+name: publish to nuget
+on:
+  push:
+    branches:
+      - master # Your default release branch
+jobs:
+  publish:    
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout
+      - uses: actions/checkout@master
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.100' # SDK Version to use.
+          source-url: https://nuget.pkg.github.com/telstra/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.NUGET_DEPLOY_KEY}}
+      - run: dotnet build src/Telstra.Messaging
+
+      - name: Create the package
+        run: dotnet pack --configuration Release src/Telstra.Messaging
+      - name: Publish the package to GPR
+        run: dotnet nuget push src/Telstra.Messaging/bin/Release/*.nupkg
