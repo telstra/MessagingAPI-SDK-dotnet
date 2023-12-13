@@ -5,7 +5,7 @@ With Telstra's Messaging API, we take out the complexity to allow seamless messa
 Our REST API is enterprise grade, allowing you to communicate with engaging SMS & MMS messaging in your web and mobile apps in near real-time on a global scale.
 
 - API version: 3.0.0
-- SDK version: 3.0.0
+- SDK version: 3.1.0
 
 <a id="frameworks-supported"></a>
 ## Frameworks supported
@@ -51,7 +51,7 @@ nuget pack -Build -OutputDirectory out com.telstra.messaging.csproj
 
 Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) or [other host](https://docs.microsoft.com/en-us/nuget/hosting-packages/overview) and consume the new package via Nuget as usual.
 
-The nuget package for Messaging V3 is published in https://www.nuget.org/packages/TelstraMessaging/, please install nuget package TelstraMessaging v3.0.0 for developing.
+The nuget package for Messaging V3 is published in https://www.nuget.org/packages/TelstraMessaging/, please install nuget package TelstraMessaging v3.1.0 for developing.
 
 <a id="usage"></a>
 ## Usage
