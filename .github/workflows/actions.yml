@@ -1,0 +1,49 @@
+name: .NET SDK CI/CD
+
+on:
+  workflow_dispatch:
+
+env:
+  PROJECT_PATH: 'src/com.telstra.messaging/com.telstra.messaging.csproj'
+  PACKAGE_OUTPUT_DIRECTORY: ${{ github.workspace }}/output
+  NUGET_SOURCE_URL: 'https://api.nuget.org/v3/index.json'  
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: "7.0.x" # Change to your desired .NET version
+
+      - name: Restore Dependencies
+        run: dotnet restore ${{ env.PROJECT_PATH }}       
+
+      - name: Build
+        run: dotnet build ${{ env.PROJECT_PATH }} --no-restore --configuration Release
+
+  publish:
+    name: Publish to NuGet
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: "7.0.x" # Change to your desired .NET version
+
+      - name: Publish to NuGet
+        run: |
+          nuget restore
+          dotnet msbuild ${{ env.PROJECT_PATH }} /p:OutputPath=${{ env.PACKAGE_OUTPUT_DIRECTORY }}           
+          dotnet nuget push ${{ env.PACKAGE_OUTPUT_DIRECTORY }}/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
