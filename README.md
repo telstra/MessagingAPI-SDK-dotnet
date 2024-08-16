@@ -1,4 +1,4 @@
-# com.telstra.messaging - the C# library for the Messaging API v3.1.1
+# com.telstra.messaging - the C# library for the Messaging API v3.1.2
 
 Send and receive SMS & MMS programmatically, leveraging Australia's leading mobile network.
 With Telstra's Messaging API, we take out the complexity to allow seamless messaging integration into your app, with just a few lines of code.
@@ -51,7 +51,9 @@ nuget pack -Build -OutputDirectory out com.telstra.messaging.csproj
 
 Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds) or [other host](https://docs.microsoft.com/en-us/nuget/hosting-packages/overview) and consume the new package via Nuget as usual.
 
-The nuget package for Messaging V3 is published in https://www.nuget.org/packages/TelstraMessaging/, please install nuget package TelstraMessaging v3.1.1 for developing.
+The nuget package for Messaging V3 is published in https://www.nuget.org/packages/TelstraMessaging/, please install nuget package TelstraMessaging v3.1.2 for developing.
+
+Install-Package TelstraMessaging -Version 3.1.2
 
 <a id="usage"></a>
 ## Usage
