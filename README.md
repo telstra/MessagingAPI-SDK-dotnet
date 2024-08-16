@@ -5,7 +5,7 @@ With Telstra's Messaging API, we take out the complexity to allow seamless messa
 Our REST API is enterprise grade, allowing you to communicate with engaging SMS & MMS messaging in your web and mobile apps in near real-time on a global scale.
 
 - API version: 3.0.0
-- SDK version: 3.1.1
+- SDK version: 3.1.2
 
 <a id="frameworks-supported"></a>
 ## Frameworks supported
