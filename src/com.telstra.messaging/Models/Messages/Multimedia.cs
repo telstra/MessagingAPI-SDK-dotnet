@@ -1,3 +1,4 @@
+using com.telstra.messaging.Utils;
 using Newtonsoft.Json;
 
 namespace com.telstra.messaging.Models.Messages
@@ -45,9 +46,12 @@ namespace com.telstra.messaging.Models.Messages
             get { return _payload ?? string.Empty; }
             set
             {
-                if (string.IsNullOrEmpty(value) || value.Length < 1 || value.Length > 999999)
+                const int sizeLimit = 2 * 1024 * 1024;
+                int bytes = System.Text.Encoding.UTF8.GetByteCount(value);
+
+                if (string.IsNullOrEmpty(value) || value.Length < 1 || bytes > sizeLimit)
                 {
-                    throw new Exception("Invalid value. Payload accepts a base64 encoded content string.");
+                    throw new Exception("Invalid value. Payload accepts a payload within 2MB size.");
                 }
 
                 _payload = value;
